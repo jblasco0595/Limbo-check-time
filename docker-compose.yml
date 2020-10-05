@@ -1,0 +1,33 @@
+version: '2'
+services:
+  mariadb:
+    image: 'docker.io/bitnami/mariadb:10.3-debian-10'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=jorgeb
+      - MARIADB_DATABASE=dbtest
+      - MARIADB_PASSWORD=bitnami
+  phpmyadmin:
+    image: 'docker.io/bitnami/phpmyadmin:5-debian-10'
+    ports:
+      - '80:8080'
+      - '443:8443'
+    depends_on:
+      - mariadb
+  myapp:
+    tty: true
+    image: bitnami/laravel:6.18.35
+    environment:
+      - DB_HOST=mariadb
+      - DB_USERNAME=jorgeb
+      - DB_DATABASE=dbtest
+      - DB_PASSWORD=bitnami
+    depends_on:
+      - mariadb
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/app
+volumes:
+  mariadb_data:
+    driver: local
