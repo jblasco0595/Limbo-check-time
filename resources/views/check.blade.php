@@ -6,7 +6,7 @@
         <p class="timer"></p>
     </div>
     <div class="card-body">
-        <h3 class="card-title">Feliz Jornada.</h3>
+        <h3 class="card-title">Los sueños se realizan cuando mantienes el compromiso con ellos.</h3>
         <p class="card-text">Marca tus entradas y salidas.</p>
         <button id="checkIn" type="button" class="btn btn-success" onclick="StartTime()">Check In</button>
         <button id="checkOut" type="button" class="btn btn-danger" onclick="endTime()">Check Out</button>
@@ -16,69 +16,77 @@
     </div>
 </div>
 <script>
-    var lastTimeRecord;
-    var accumTime;
-    var timeForShow;
+    var lastTimeRecord = {!! json_encode($timeRecord) !!};
+    var accumTime = parseFloat({!! json_encode($accTime)!!});
+    var timeForShow = [];
 
-    function getLastRecord()
+    var makeTimeInterval = () => 
     {
-        lastTimeRecord = {!! json_encode($timeRecord) !!};
-        return lastTimeRecord;
-    }   
+        timeForShow.push( setInterval(() => {
+            showTime()
+        }, 100));
+    }
+    var stopTimeInterval = () => 
+    {
+        timeForShow.map( intervalID => clearInterval(intervalID) );
+        timeForShow = []
 
-    function getLastAccumulateTime()
+    }
+    
+
+    //courrentTime
+
+    function getWindowTime(initTime)
     {
-        accumTime = {!! json_encode($accTime) !!};
-        return accumTime;
-    }  
+        let start = moment.utc(initTime); // some random moment in time (in ms)
+        let end = moment(); // some random moment after start (in ms)
+        let diff = end.diff(start);
+        let diffInSeconds = Math.round(diff / 1000);
+        return diffInSeconds
+    }
+    //endCourrentTime
 
     // formatAccTime
 
-        function makeFormatAccTime()
+        function makeFormatAccTime(timeForFormat)
         {
-            var duration = moment.duration(accumTime, 'seconds');
+            var duration = moment.duration(timeForFormat, 'seconds');
             var formatted = duration.format("hh:mm:ss");
             return formatted;
         }
 
     // endFormatAccTime
 
-    // actualFormatAccTime
-    
-        function makeActualFormatAccTime()
-        {
-            var floatAccumTime = moment.duration(accumTime, "seconds");
-            var accTimeFormatted = floatAccumTime.format("HH:mm:ss");
-            return accTimeFormatted
-        }
-    // endActualFormatAccTime
-
     // showTimeSeccion
 
-        function showTime(time)
+        function showTime()
         {
-            $('.timer').text(time);
+            if (lastTimeRecord.end_time == null)
+            {
+                var diff = getWindowTime(lastTimeRecord.init_time);
+                var courrentTime = (parseFloat(accumTime) + parseFloat(diff));
+                /* console.log(accumTime, diff, courrentTime);  */
+                let timeForPrint = makeFormatAccTime(courrentTime);
+
+                $('.timer').text(timeForPrint);
+            }  else {
+                let timeForPrint = makeFormatAccTime(accumTime);
+                $('.timer').text(timeForPrint);
+                stopTimeInterval()
+            }
         }
 
     // endShowtimeSeccion
 
-    function makeTimeInterval(){
-
-        timeForShow = setInterval(() => {
-            let timeForInterval =  makeFormatAccTime();
-            showTime(timeForInterval)
-        }, 100);
-    }
     
     // bottonStatusSeccion
 
         function bottonStatus()
         {
-            initialLastTimeRecord = getLastRecord();
 
-            if (initialLastTimeRecord)
+            if (lastTimeRecord)
             {
-                if (initialLastTimeRecord.end_time == null)
+                if (lastTimeRecord.end_time == null)
                 {
                     $('#checkIn').attr("disabled", "disabled");
                     $('#checkOut').removeAttr("disabled");
@@ -99,10 +107,7 @@
 
         $( document ).ready(function() {
             bottonStatus();
-            getLastAccumulateTime();
             makeTimeInterval();
-
-            /* showTime(); */
         });
     // endInitialFunction
 
@@ -114,8 +119,8 @@
                 url:"{{ route('start') }}",  
                 success:function(result)
                 {
-                    console.log(result)
-                    lastTimeRecord = getLastRecord();
+                    console.log(result);
+                    makeTimeInterval();
                     $('#checkIn').attr("disabled", "disabled");
                     $('#checkOut').removeAttr("disabled");
                 }
@@ -132,8 +137,9 @@
                 success:function(result) 
                 {
                     console.log(result)
-                    lastTimeRecord = getLastRecord();
                     accumTime = result.lastAccumulateTime;
+                    console.log(timeForShow)
+                    stopTimeInterval()
                     $('#checkOut').attr("disabled", "disabled");
                     $('#checkIn').removeAttr("disabled");
                 }
