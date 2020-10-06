@@ -6,35 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Auth;
 
 class LoginController extends Controller
 {   
-    public function login(Request $request)
+    public function username()
     {
-        $this->validate($request, [
-            'email'    => 'required',
-            'password' => 'required',
-        ]);
-
-        $login_type = filter_var($request->input('email'), FILTER_VALIDATE_EMAIL ) 
-            ? 'email' 
-            : 'username';
-
-        $request->merge([
-            $login_type => $request->input('email')
-        ]);
-
-        if (Auth::attempt($request->only($login_type, 'password'))) {
-            return redirect()->intended($this->redirectPath());
-        }
-
-        return redirect('/')
-            ->withInput($request->only($this->username(), 'remember'))
-            ->withErrors([
-                $this->username() => 'Credenciales incorrectos.',
-            ]);
-
+        return 'username';
     }
+
     /*
     |--------------------------------------------------------------------------
     | Login Controller

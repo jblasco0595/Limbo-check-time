@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
         User::create(array(
             'name' => 'jorge',
             'email' => 'jorge@gmail.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('1234'),
             'username' => 'jblasco',
             'limbocoins' => 15
         ));
@@ -24,7 +24,7 @@ class UsersTableSeeder extends Seeder
         User::create(array(
             'name' => 'anniel',
             'email' => 'anniel@gmail.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('1234'),
             'username' => 'aLuna',
             'limbocoins' => 15
         ));
@@ -32,7 +32,7 @@ class UsersTableSeeder extends Seeder
         User::create(array(
             'name' => 'gabriel',
             'email' => 'gabriel@gmail.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make('1234'),
             'username' => 'gguerrero',
             'limbocoins' => 15
         ));

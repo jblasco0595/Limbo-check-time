@@ -53,6 +53,9 @@
                                     <a class="dropdown-item" href="{{ route('check') }}">
                                         Check 
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('home') }}">
+                                        Home 
+                                    </a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
