@@ -19,6 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('user_name')->nulleable();
+            $table->string('role')->nulleable();
+            $table->integer('limbocoins');
             $table->rememberToken();
             $table->timestamps();
         });

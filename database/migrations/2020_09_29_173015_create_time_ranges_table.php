@@ -20,8 +20,6 @@ class CreateTimeRangesTable extends Migration
             $table->timestamp('init_time');
             $table->timestamp('end_time')->nullable();
             $table->integer('seconds_difference')->nullable();
-            $table->integer('extra_time')->nullable();
-            $table->boolean('approved')->default(false);
             $table->timestamps();
         });
     }
