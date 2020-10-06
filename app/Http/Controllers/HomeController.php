@@ -14,7 +14,7 @@ class HomeController extends Controller
 {
     private function getAllTimeRecords()
     {
-        $allTimeRecords = TimeRange::where('user_id', Auth::id())->paginate(10);
+        $allTimeRecords = TimeRange::where('user_id', Auth::id())->latest()->paginate(10);
         return $allTimeRecords;
     }
     /**

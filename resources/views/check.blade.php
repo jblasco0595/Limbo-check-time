@@ -60,17 +60,23 @@
     // showTimeSeccion
 
         function showTime()
-        {
-            if (lastTimeRecord.end_time == null)
+        {   if(lastTimeRecord)
             {
-                var diff = getWindowTime(lastTimeRecord.init_time);
-                var courrentTime = (parseFloat(accumTime) + parseFloat(diff));
-                /* console.log(accumTime, diff, courrentTime);  */
-                let timeForPrint = makeFormatAccTime(courrentTime);
+                if (lastTimeRecord.end_time == null)
+                {
+                    var diff = getWindowTime(lastTimeRecord.init_time);
+                    var courrentTime = (parseFloat(accumTime) + parseFloat(diff));
+                    /* console.log(accumTime, diff, courrentTime);  */
+                    let timeForPrint = makeFormatAccTime(courrentTime);
 
-                $('.timer').text(timeForPrint);
-            }  else {
-                let timeForPrint = makeFormatAccTime(accumTime);
+                    $('.timer').text(timeForPrint);
+                }  else {
+                    let timeForPrint = makeFormatAccTime(accumTime);
+                    $('.timer').text(timeForPrint);
+                    stopTimeInterval()
+                }
+            } else {
+                let timeForPrint = makeFormatAccTime(0);
                 $('.timer').text(timeForPrint);
                 stopTimeInterval()
             }

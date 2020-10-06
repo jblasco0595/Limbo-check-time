@@ -11,17 +11,15 @@
                         <th scope="col">User</th>
                         <th scope="col">Rango de tiempo</th>
                         <th scope="col">segundos</th>
-                        <th scope="col">Extra time</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($allTimeRecords as $timeRecord)
                             <tr>
                             <th scope="row">{{ $timeRecord->id }}</th>
-                            <td>user </td>
+                            <td>{{ Auth::user()->name }}</td>
                             <td>{{ $timeRecord->init_time }} / {{ $timeRecord->end_time }}</td>
                             <td>{{ $timeRecord->seconds_difference }}</td>
-                            <td>h</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -50,9 +48,8 @@
     
 
     <script>
-    
-    var timeRecords = {!! json_encode($allTimeRecords) !!};
-    console.log(timeRecords);
+        var timeRecords = {!! json_encode($allTimeRecords) !!};
+        console.log(timeRecords);
     
     
     </script>
