@@ -28,13 +28,15 @@ class CheckController extends Controller
 
     private function makeNewStartTime()
     {
-        TimeRange::create(array(
+        $newTimeRange = TimeRange::create(array(
             'user_id' => Auth::id(),
             'init_time' => Carbon::now()
         ));
+
         return response()->json([
             'code' => 200,
-            'msg' => 'startTimeSi'
+            'msg' => 'startTimeSi',
+            'lastTimeRange' => $newTimeRange
         ]);
     }
 
@@ -45,8 +47,8 @@ class CheckController extends Controller
         $endTime = $endingTime;
 
         return $accumTime = $endTime->diffInSeconds($lastInitTime);
-        
-    } 
+
+    }
 
     public function index()
     {
@@ -65,18 +67,18 @@ class CheckController extends Controller
 
         if($lastRecord)
         {
-            if($lastRecord->end_time == !null)
+            if($lastRecord->end_time != null)
             {
                return $this->makeNewStartTime();
             } else {
                 return response()->json([
-                    'code' => 205, 
-                    'msg' =>  'startTimeNo'    
+                    'code' => 205,
+                    'msg' =>  'startTimeNo'
                 ]);
             }
         } else {
             return $this->makeNewStartTime();
-        } 
+        }
     }
 
     public function endTime()
@@ -92,7 +94,7 @@ class CheckController extends Controller
 
                 $lastRecord->update([
                         'end_time'=> $endTime,
-                        'seconds_difference' => $accumTime 
+                        'seconds_difference' => $accumTime
                     ]);
                 $lastAccumulateTime = $this->getAccumTime();
 
@@ -100,12 +102,13 @@ class CheckController extends Controller
                     ->json([
                         'code' => 200,
                         'msg' => 'endTimeSi',
+                        'lastTimeRange' => $lastRecord,
                         'lastAccumulateTime' => $lastAccumulateTime
                     ]);
             } else {
                 return response()->json([
                     'code' => 205,
-                    'msg'=> 'endTimeNo',     
+                    'msg'=> 'endTimeNo',
                 ]);
             }
         } else {
