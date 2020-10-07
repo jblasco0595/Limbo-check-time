@@ -21,4 +21,13 @@ class SettingsController extends Controller
                 'lastSettingsRecord' => $lastSettingsRecord
             ]);
     }
+
+    public function store(Request $request)
+    {   
+        Settings::create(array(
+            'montly_goal'=> $request->montlyGoal,
+            'limbocoin_ars_price' =>  $request->limboCoinsArsPrice
+        ));
+        return redirect(route('settings'));
+    }
 }
