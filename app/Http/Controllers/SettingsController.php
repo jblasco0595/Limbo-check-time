@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Settings;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SettingsController extends Controller
 {
@@ -16,10 +17,18 @@ class SettingsController extends Controller
     public function index()
     {
         $lastSettingsRecord = $this->getLastSettingsRecord();
-        return view('settings')
+
+        if(Auth::user()->role == 'employee')
+        {
+            return view('welcome');
+              
+        } elseif (Auth::user()->role =='admin') 
+        {
+            return view('settings')
             ->with([
                 'lastSettingsRecord' => $lastSettingsRecord
             ]);
+        }
     }
 
     public function store(Request $request)

@@ -25,7 +25,7 @@ class UsersTableSeeder extends Seeder
         User::create(array(
             'name' => 'anniel',
             'email' => 'anniel@gmail.com',
-            'role' => 'employee',
+            'role' => 'admin',
             'password' => Hash::make('1234'),
             'username' => 'aLuna',
             'limbocoins' => 15
