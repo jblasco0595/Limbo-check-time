@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder
         User::create(array(
             'name' => 'jorge',
             'email' => 'jorge@gmail.com',
+            'role' => 'admin',
             'password' => Hash::make('1234'),
             'username' => 'jblasco',
             'limbocoins' => 15
@@ -24,6 +25,7 @@ class UsersTableSeeder extends Seeder
         User::create(array(
             'name' => 'anniel',
             'email' => 'anniel@gmail.com',
+            'role' => 'employee',
             'password' => Hash::make('1234'),
             'username' => 'aLuna',
             'limbocoins' => 15
@@ -32,6 +34,7 @@ class UsersTableSeeder extends Seeder
         User::create(array(
             'name' => 'gabriel',
             'email' => 'gabriel@gmail.com',
+            'role' => 'employee',
             'password' => Hash::make('1234'),
             'username' => 'gguerrero',
             'limbocoins' => 15

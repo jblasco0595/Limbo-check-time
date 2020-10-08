@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-lg-10 col-md-10 col-sm-10">        
                 <table class="table">
@@ -10,16 +10,29 @@
                         <th scope="col">ID</th>
                         <th scope="col">User</th>
                         <th scope="col">Rango de tiempo</th>
-                        <th scope="col">segundos</th>
+                        <th scope="col">Accion</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($allTimeRecords as $timeRecord)
+                        @foreach($allRecords as $timeRecord)
                             <tr>
                             <th scope="row">{{ $timeRecord->id }}</th>
-                            <td>{{ Auth::user()->name }}</td>
-                            <td>{{ $timeRecord->init_time }} / {{ $timeRecord->end_time }}</td>
-                            <td>{{ $timeRecord->seconds_difference }}</td>
+                            <td>{{ $timeRecord->user->name }}</td>
+                            <td>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <input class="form-control form-control-sm" type="text" value="{{ $timeRecord->init_time }}"> 
+                                        </div>
+                                        <div class="col-4">
+                                            <input class="form-control form-control-sm" type="text" value="{{ $timeRecord->end_time }}">
+                                        </div>
+                                    </div>
+                                </div>    
+                            </td>
+                            <td> 
+                                <button type="button" class="btn btn-outline-primary">Actualizar</button>
+                            </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -49,15 +62,14 @@
         </div>
         <div class="row">
             <div class="col-12 text-center">
-                {{ $allTimeRecords->links() }}
+                {{ $allRecords->links() }}
             </div>
         </div>
     </div>
-    
+
     <script>
-        var timeRecords = {!! json_encode($allTimeRecords) !!};
+        var timeRecords = {!! json_encode($allRecords) !!};
         console.log(timeRecords);
-    
-    
+     
     </script>
 @endsection

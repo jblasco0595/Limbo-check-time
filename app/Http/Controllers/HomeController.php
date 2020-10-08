@@ -17,6 +17,12 @@ class HomeController extends Controller
         $allTimeRecords = TimeRange::where('user_id', Auth::id())->latest()->paginate(10);
         return $allTimeRecords;
     }
+
+    private function getAllTimeRecordsAdmin()
+    {
+        $allTimeRecordsAdmin = TimeRange::with('user')->orderBy('id', 'desc')->paginate(10);
+        return $allTimeRecordsAdmin;
+    }
     /**
      * Create a new controller instance.
      *
@@ -34,11 +40,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $recordsForReturn = $this->getAllTimeRecords(); 
+        if(Auth::user()->role == 'employee')
+        {
+            $recordsForReturn = $this->getAllTimeRecords(); 
 
-        return view('home')
-            ->with([
-                'allTimeRecords' => $recordsForReturn,
-            ]);
+            return view('home')
+                ->with([
+                    'allTimeRecords' => $recordsForReturn,
+                ]);
+        } elseif (Auth::user()->role =='admin') 
+        {
+            $allRecordsForReturn = $this->getAllTimeRecordsAdmin();
+
+            return view('homeAdmin')
+                ->with([
+                    'allRecords' => $allRecordsForReturn
+                ]);
+        }
+        
     }
 }
