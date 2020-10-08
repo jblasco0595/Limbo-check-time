@@ -16,7 +16,7 @@
                                 <div class="form-group">            
                                     <div class="row">       
                                         <div class="input-group mb-3">
-                                            <input name="montlyGoal" id="mGoal" type="text" class="form-control" placeholder="Meta esperada" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                            <input name="montlyGoal" id="mGoal" type="text" class="form-control" placeholder="Meta esperada" aria-label="Recipient's username" aria-describedby="basic-addon2" required="true">
                                             <div class="input-group-append">
                                                 <span class="input-group-text" id="basic-addon2" style="width: 170px">Meta Mensual</span>
                                             </div>
@@ -26,7 +26,7 @@
                                 <div class="form-group"> 
                                     <div class="row"> 
                                         <div class="input-group mb-3">
-                                            <input name="limboCoinsArsPrice" id="limboCoins" type="text" class="form-control" placeholder="Precio LimboCoins" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                            <input name="limboCoinsArsPrice" id="limboCoins" type="text" class="form-control" placeholder="Precio LimboCoins" aria-label="Recipient's username" aria-describedby="basic-addon2" required="true">
                                             <div class="input-group-append">
                                                 <span class="input-group-text" id="basic-addon2" style="width: 170px">LimboCoins precio USD</span>
                                             </div>

@@ -18,7 +18,7 @@ Route::get('checkPage', 'CheckController@index')->name('check');
 Route::get('startNewTime', 'CheckController@startTime')->name('start');
 Route::get('endTimeRecord', 'CheckController@endTime')->name('end');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::put('/timeRange/{timeRange}', 'CheckController@update')->name('updateTimeRange');
 Route::get('settingsPage', 'SettingsController@index')->name('settings');
 Route::post('settingsPage', 'SettingsController@store')->name('settingsStore');
-Auth::routes();
 Auth::routes(['register' => false]);

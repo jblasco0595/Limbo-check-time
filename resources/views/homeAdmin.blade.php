@@ -19,19 +19,31 @@
                             <th scope="row">{{ $timeRecord->id }}</th>
                             <td>{{ $timeRecord->user->name }}</td>
                             <td>
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-4">
-                                            <input class="form-control form-control-sm" type="text" value="{{ $timeRecord->init_time }}"> 
+                                <form id="editTimeForm_{{ $timeRecord->id }}" method="POST" action="{{ route('updateTimeRange', $timeRecord->id) }}">
+                                    @method('PUT')
+                                    @csrf
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <input name="initTimeEdit" class="form-control form-control-sm" type="text" value="{{ $timeRecord->init_time }}"> 
+                                                    </div>
+                                                </div>
+                                           </div>
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <div class="input-group">
+                                                        <input name="endTimeEdit" class="form-control form-control-sm" type="text" value="{{ $timeRecord->end_time }}">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-4">
-                                            <input class="form-control form-control-sm" type="text" value="{{ $timeRecord->end_time }}">
-                                        </div>
-                                    </div>
-                                </div>    
+                                    </div> 
+                                </form>   
                             </td>
                             <td> 
-                                <button type="button" class="btn btn-outline-primary">Actualizar</button>
+                                <button type="submit" class="btn btn-outline-primary" form="editTimeForm_{{ $timeRecord->id }}">Actualizar</button>
                             </td>
                             </tr>
                         @endforeach
