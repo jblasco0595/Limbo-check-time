@@ -56,7 +56,6 @@ class HomeController extends Controller
                 ->with([
                     'allRecords' => $allRecordsForReturn
                 ]);
-        }
-        
+        }   
     }
 }
