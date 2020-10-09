@@ -56,12 +56,13 @@
                                     <a class="dropdown-item" href="{{ route('home') }}">
                                         Home 
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('extraTime') }}">
+                                        ExtraTime 
+                                    </a>
                                         @if( Auth::user()->role == 'admin')
-                                        {
                                             <a class="dropdown-item" href="{{ route('settings') }}">
                                                 Settings 
                                             </a>
-                                        }
                                         @endif
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"

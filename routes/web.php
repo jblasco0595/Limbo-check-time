@@ -24,5 +24,6 @@ Route::post('settingsPage', 'SettingsController@store')->name('settingsStore');
 Route::get('extratimePage', 'ExtraTimeController@index')->name('extraTime');
 Route::post('extratime', 'ExtraTimeController@store')->name('extraTime.store');
 Route::put('extratime/{extraTime}', 'ExtraTimeController@update')->name('extraTime.update');
+Route::put('extratime/{extraTime}/approved', 'ExtraTimeController@approved')->name('extraTime.approved');
 Route::delete('extratime/{extraTime}', 'ExtraTimeController@destroy')->name('extraTime.destroy');
 Auth::routes(['register' => false]);

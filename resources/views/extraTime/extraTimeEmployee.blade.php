@@ -59,46 +59,60 @@
                                 <td>{{ Auth::user()->name }}</td>
                                 <td>{{ $userExtraTime->description }}</td>
                                 <td>{{ $userExtraTime->hours }} </td>
-                                <td>{{ $userExtraTime->approved }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#updateExampleModal" data-whatever="@mdo">Actualizar</button>
-                                    <div class="modal fade" id="updateExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Actualizar ExtraTime</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form id="updateExtraTime_{{ $userExtraTime->id }}" method="POST" action="{{ route('extraTime.update', $userExtraTime->id) }}">
-                                                        @csrf
-                                                        @method('PUT')
-                                                        <div class="form-group">
-                                                            <label for="recipient-name" class="col-form-label">Actualizar Cantidad de Horas</label>
-                                                            <input name="hours" type="text" class="form-control" id="recipient-name" value="{{ $userExtraTime->hours }}">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="message-text" class="col-form-label">Actualizar Descripcion de la tarea</label>
-                                                            <textarea name="description" class="form-control" id="message-text">{{ $userExtraTime->description }}</textarea>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                    <button type="submit" class="btn btn-primary" form="updateExtraTime_{{ $userExtraTime->id }}">Actualizar</button>
+                                    @if ( $userExtraTime->approved == 0)
+                                        Por Aprobar
+                                    @else
+                                        Aprobado
+                                    @endif
+                                </td>
+                                <td>
+                                    @if( $userExtraTime->approved == 0)
+                                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#updateExampleModal" data-whatever="@mdo">Actualizar</button>
+                                        <div class="modal fade" id="updateExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Actualizar ExtraTime</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form id="updateExtraTime_{{ $userExtraTime->id }}" method="POST" action="{{ route('extraTime.update', $userExtraTime->id) }}">
+                                                            @csrf
+                                                            @method('PUT')
+                                                            <div class="form-group">
+                                                                <label for="recipient-name" class="col-form-label">Actualizar Cantidad de Horas</label>
+                                                                <input name="hours" type="text" class="form-control" id="recipient-name" value="{{ $userExtraTime->hours }}">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="message-text" class="col-form-label">Actualizar Descripcion de la tarea</label>
+                                                                <textarea name="description" class="form-control" id="message-text">{{ $userExtraTime->description }}</textarea>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                        <button type="submit" class="btn btn-primary" form="updateExtraTime_{{ $userExtraTime->id }}">Actualizar</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>           
+                                    @else
+                                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#updateExampleModal" data-whatever="@mdo" disabled="disabled">Actualizar</button>              
+                                    @endif
                                 </td>
                                 <td>
-                                    <form action="{{ route('extraTime.destroy', $userExtraTime->id) }}" method="POST">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button type="submit" class="btn btn-outline-danger" onclick="return confirm('¿Eliminar Extra Time Record?')">Eliminar</button>
-                                    </form>
+                                    @if( $userExtraTime->approved == 0)
+                                        <form action="{{ route('extraTime.destroy', $userExtraTime->id) }}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button type="submit" class="btn btn-outline-danger" onclick="return confirm('¿Eliminar Extra Time Record?')">Eliminar</button>
+                                        </form>
+                                    @else 
+                                    <button type="submit" class="btn btn-outline-danger" onclick="return confirm('¿Eliminar Extra Time Record?')" disabled="disabled">Eliminar</button>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

@@ -58,16 +58,39 @@ class ExtraTimeController extends Controller
 
     public function destroy(ExtraTime $extraTime)
     {
-        $extraTime->delete();
+        if($extraTime->approved == 0)
+        {
+            $extraTime->delete();
 
-        return redirect(route('extraTime'));
+            return redirect(route('extraTime'));
+        } else {
+
+            return redirect(route('extraTime'));
+        }
+
+        
     }
 
     public function update(Request $request, ExtraTime $extraTime )
     {
+        if($extraTime->approved == 0)
+        {
+            $extraTime->update([
+                'hours' => $request["hours"],
+                'description' => $request["description"]
+            ]);   
+            return redirect(route('extraTime'));
+        } else {
+
+            return redirect(route('extraTime'));
+        }
+        
+    }
+
+    public function approved(Request $request, ExtraTime $extraTime)
+    {   
         $extraTime->update([
-            'hours' => $request["hours"],
-            'description' => $request["description"]
+            'approved' => true,
         ]);   
         return redirect(route('extraTime'));
     }
