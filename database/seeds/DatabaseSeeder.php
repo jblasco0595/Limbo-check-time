@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UsersTableSeeder::class,
             TimeRangesTableSeeder::class,
-            SettingsTableSeeder::class
+            SettingsTableSeeder::class,
+            ProjectsTableSeeder::class
         ]);
     }
 }

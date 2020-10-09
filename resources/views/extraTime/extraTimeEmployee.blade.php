@@ -68,8 +68,8 @@
                                 </td>
                                 <td>
                                     @if( $userExtraTime->approved == 0)
-                                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#updateExampleModal" data-whatever="@mdo">Actualizar</button>
-                                        <div class="modal fade" id="updateExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#updateExampleModal_{{ $userExtraTime->id }}" data-whatever="@mdo">Actualizar</button>
+                                        <div class="modal fade" id="updateExampleModal_{{ $userExtraTime->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -100,7 +100,7 @@
                                             </div>
                                         </div>
                                     @else
-                                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#updateExampleModal" data-whatever="@mdo" disabled="disabled">Actualizar</button>              
+                                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#updateExampleModal" data-whatever="@mdo" disabled="disabled">Actualizar</button>              
                                     @endif
                                 </td>
                                 <td>
