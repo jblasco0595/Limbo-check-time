@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             TimeRangesTableSeeder::class,
             SettingsTableSeeder::class,
-            ProjectsTableSeeder::class
+            ProjectTableSeeder::class
         ]);
     }
 }
