@@ -46,4 +46,6 @@ Route::delete('projectsPage/{project}', 'ProjectsController@destroy')->name('pro
 
 Route::put('projectsPage/{project}/update', 'ProjectsController@update')->name('projects.update');
 
+Route::get('projectsPaymentPage', 'ProjectPaymentController@index')->name('projectsPayment');
+
 Auth::routes(['register' => false]);
