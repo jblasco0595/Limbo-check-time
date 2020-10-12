@@ -48,4 +48,6 @@ Route::put('projectsPage/{project}/update', 'ProjectsController@update')->name('
 
 Route::get('projectsPaymentPage', 'ProjectPaymentController@index')->name('projectsPayment');
 
+Route::post('projectsPayment', 'ProjectPaymentController@store')->name('projectsPayment.store');
+
 Auth::routes(['register' => false]);
