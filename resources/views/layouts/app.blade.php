@@ -63,6 +63,12 @@
                                             <a class="dropdown-item" href="{{ route('settings') }}">
                                                 Settings 
                                             </a>
+                                            <a class="dropdown-item" href="{{ route('projects') }}">
+                                                Projects 
+                                            </a>
+                                            <a class="dropdown-item" href="{{ route('projectsPayment') }}">
+                                                Projects Payment 
+                                            </a>
                                         @endif
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"

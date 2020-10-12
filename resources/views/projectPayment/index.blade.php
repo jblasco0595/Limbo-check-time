@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <h1>Project PAyment </h1>
+    <div class="container">
+        <h1>aa</h1>
+    </div>
 
 @endsection
