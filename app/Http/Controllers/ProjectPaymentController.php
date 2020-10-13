@@ -15,9 +15,16 @@ class ProjectPaymentController extends Controller
         return $projects;
     }
 
+    private function getAllPaidProjects()
+    {
+        $paidProjects = ProjectPayment::with('project')->orderBy('id', 'desc')->paginate(10);
+        return $paidProjects;
+    }
+
     public function index()
     {
         $projectsForPayments = $this->getAllProjectRecord();
+        $allPaidProjects = $this->getAllPaidProjects();
 
         if(Auth::user()->role == 'employee')
         {
@@ -27,21 +34,36 @@ class ProjectPaymentController extends Controller
         {
             return view("projectPayment.index")
                 ->with([
-                    'projectsForPayments' => $projectsForPayments
+                    'projectsForPayments' => $projectsForPayments,
+                    'allPaidProjects' => $allPaidProjects
                 ]);
         }   
     }
 
     public function store(Request $request)
     {
-        return $request;
-        
         ProjectPayment::create([
-            'project_id' => Auth::id(),
-            'date' => $request->hours,
-            'amount' => $request->description,
+            'project_id' => $request->projectId,
+            'date' => $request->paymentDate,
+            'amount' => $request->paymentAmount,
         ]);
 
-        return redirect(route('projectPayment.index'));
+        return redirect(route('projectsPayment'));
+    }
+
+    public function destroy(ProjectPayment $projectPayment)
+    {
+        $projectPayment->delete();
+
+        return redirect(route('projectsPayment'));
+    }
+
+    public function update(Request $request, ProjectPayment $projectPayment)
+    {
+        $projectPayment->update([
+            'date' => $request["paymentDate"],
+            'amount' => $request["amount"]
+        ]);   
+        return redirect(route('projectsPayment'));
     }
 }

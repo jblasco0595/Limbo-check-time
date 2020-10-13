@@ -50,4 +50,8 @@ Route::get('projectsPaymentPage', 'ProjectPaymentController@index')->name('proje
 
 Route::post('projectsPayment', 'ProjectPaymentController@store')->name('projectsPayment.store');
 
+Route::put('projectsPayment/{projectPayment}/update', 'ProjectPaymentController@update')->name('projectsPayment.update');
+
+Route::delete('projectsPayment/{projectPayment}', 'ProjectPaymentController@destroy')->name('projectsPayment.destroy');
+
 Auth::routes(['register' => false]);
