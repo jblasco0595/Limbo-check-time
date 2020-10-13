@@ -1,24 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
-    <div class="col-md-8 offset-md-2">
-        <div class="card text-center">
-            <div class="card-header">
-                <p class="timer"></p>
-            </div>
-            <div class="card-body">
-                <h3 class="card-title">Los sueños se realizan cuando mantienes el compromiso con ellos.</h3>
-                <p class="card-text">Marca tus entradas y salidas.</p>
-                <button id="checkIn" type="button" class="btn btn-success" onclick="StartTime()">Check In</button>
-                <button id="checkOut" type="button" class="btn btn-danger" onclick="endTime()">Check Out</button>
-            </div>
-            <div class="card-footer text-muted">
-                Los registros seran corroborados, recuerda hacer tus check correctamente.
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card text-center">
+                <div class="card-header">
+                    <p class="timer"></p>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Los sueños se realizan cuando mantienes el compromiso con ellos.</h3>
+                    <p class="card-text">Marca tus entradas y salidas.</p>
+                    <button id="checkIn" type="button" class="btn btn-success" onclick="StartTime()">Check In</button>
+                    <button id="checkOut" type="button" class="btn btn-danger" onclick="endTime()">Check Out</button>
+                </div>
+                <div class="card-footer text-muted">
+                    Los registros seran corroborados, recuerda hacer tus check correctamente.
+                </div>
             </div>
         </div>
     </div>
-
 </div>
 
 <script>
