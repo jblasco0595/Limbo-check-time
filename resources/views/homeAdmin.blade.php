@@ -58,7 +58,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title text-center">Precio Actualizado</h5>
-                        <p class="card-text text-center" style="font-size:40px;">$138</p>
+                        <p id="limboCoinPrice" class="card-text text-center" style="font-size:30px;">$10</p>
                     </div>
                 </div>      
                 <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
@@ -67,7 +67,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title text-center">Acumulado</h5>
-                        <p class="card-text text-center" style="font-size:40px;">4H</p>
+                        <p id="extraTime" class="card-text text-center" style="font-size:30px;">1H</p>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,11 @@
 
     <script>
         var timeRecords = {!! json_encode($allRecords) !!};
-        console.log(timeRecords);
+        var accumulatedHour = {!! json_encode($extraTimeAccumulatedHours) !!};
+        var settingPriceLimboCoin = {!! json_encode($settingPriceLimboCoin) !!};
+
+        $('#extraTime').text( accumulatedHour + " H"  );
+        $('#limboCoinPrice').text(  "$"+settingPriceLimboCoin.limbocoin_ars_price  );
      
     </script>
 @endsection

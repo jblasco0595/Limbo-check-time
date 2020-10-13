@@ -5,13 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
-use App\TimeRange;
 use Carbon\Carbon;
+use App\TimeRange;
+use App\Settings;
+use App\ExtraTime;
 use App\User;
 
 
 class HomeController extends Controller
 {
+    private function getLimbocoinPrice()
+    {
+        $settingsRecord = Settings::get()->last();
+        return $settingsRecord;
+    }
+    
+    private function getExtraAccumulatedHours()
+    {
+        $hours = ExtraTime::where('user_id', Auth::id())->sum('hours');
+        return $hours;
+    }
+
     private function getAllTimeRecords()
     {
         $allTimeRecords = TimeRange::where('user_id', Auth::id())->latest()->paginate(10);
@@ -40,21 +54,26 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $recordsForReturn = $this->getAllTimeRecords(); 
+        $extraTimeAccumulatedHours = $this->getExtraAccumulatedHours();
+        $settingPrinceLimboCoin = $this->getLimbocoinPrice();
+        $allRecordsForReturn = $this->getAllTimeRecordsAdmin();
+
         if(Auth::user()->role == 'employee')
         {
-            $recordsForReturn = $this->getAllTimeRecords(); 
-
             return view('home')
                 ->with([
                     'allTimeRecords' => $recordsForReturn,
+                    'extraTimeAccumulatedHours' => $extraTimeAccumulatedHours,
+                    'settingPriceLimboCoin' => $settingPrinceLimboCoin
                 ]);
         } elseif (Auth::user()->role =='admin') 
         {
-            $allRecordsForReturn = $this->getAllTimeRecordsAdmin();
-
             return view('homeAdmin')
                 ->with([
-                    'allRecords' => $allRecordsForReturn
+                    'allRecords' => $allRecordsForReturn,
+                    'extraTimeAccumulatedHours' => $extraTimeAccumulatedHours,
+                    'settingPriceLimboCoin' => $settingPrinceLimboCoin
                 ]);
         }   
     }

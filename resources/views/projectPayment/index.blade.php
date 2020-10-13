@@ -133,10 +133,6 @@
         </div>            
     </div>
 
-    <div class="container">
-        
-    </div>
-
     <script>
         var projectsForPayments = {!! json_encode($projectsForPayments) !!};
         console.log(projectsForPayments);
