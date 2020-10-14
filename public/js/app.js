@@ -65132,7 +65132,31 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 window.bootbox = __webpack_require__(/*! bootbox */ "./node_modules/bootbox/bootbox.all.js");
 window.momentDurationFormatSetup = __webpack_require__(/*! moment-duration-format */ "./node_modules/moment-duration-format/lib/moment-duration-format.js");
+ // listener to use bootbox confirm
 
+$(document).on('click', '.bootBoxConfirm', function () {
+  var msg = $(this).data('msg');
+  var form = $(this).data('form');
+  bootbox.confirm({
+    buttons: {
+      confirm: {
+        label: 'Confirm',
+        className: 'btn-danger'
+      },
+      cancel: {
+        label: 'Cancel',
+        className: 'btn-default'
+      }
+    },
+    message: msg,
+    callback: function callback(result) {
+      if (result == true) {
+        console.log(form);
+        $(form).submit();
+      }
+    }
+  });
+});
 
 /***/ }),
 
@@ -65199,8 +65223,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/jorge/Documentos/proyectos/LimboCheck/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/jorge/Documentos/proyectos/LimboCheck/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/anni/Documents/projects/checkin/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/anni/Documents/projects/checkin/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
