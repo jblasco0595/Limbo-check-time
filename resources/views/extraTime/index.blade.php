@@ -41,7 +41,7 @@
                                         <form action="{{ route('extraTime.destroy', $extraTimeRecord->id) }}" method="POST">
                                             @method('DELETE')
                                             @csrf
-                                            <button type="submit" class="btn btn-outline-danger" onclick="return confirm('¿Eliminar Extra Time Record?')">Eliminar</button>
+                                            <button type="submit" onclick="async () => await bbConfirm()" class="btn btn-outline-danger">Eliminar</button>
                                         </form>
                                     @else
                                         <button type="submit" class="btn btn-outline-danger" onclick="return confirm('¿Eliminar Extra Time Record?')" disabled="disabled">Eliminar</button>
@@ -72,6 +72,38 @@
     </div>
 
     <script>
-     
+        async function bbConfirm()
+        {
+            let promise = new Promise( (resolve, reject) => {
+                bootbox.confirm({
+                    buttons: {
+                        confirm: {
+                            label: 'Confirm',
+                            className: 'btn-danger'
+                        },
+                        cancel: {
+                            label: 'Cancel',
+                            className: 'btn-default'
+                        }
+                    },
+                    message: 'Your message',
+                    callback: function(result) {
+                        if (result == true)
+                        {
+                            resolve(true);
+                        } else {
+                            resolve(false)
+                        }
+                    },
+                });
+            })
+
+            let response = await promise
+
+            console.log(response)
+
+            return false;
+        }
+
     </script>
 @endsection
