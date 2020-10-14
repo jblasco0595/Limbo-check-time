@@ -126,6 +126,16 @@
                         @endforeach
                     </tbody>
                 </table>
+
+                @if( $allPaidProjects->isEmpty() )
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container text-center">
+                            <h1 class="display-4">No existen Registros de Pagos Proyectos aun</h1>
+                            <p class="lead">Genera un nuevo proyecto cuando tengas la posibilidad</p>
+                        </div>
+                    </div>
+                @endif
+
                 <div class="col-12 text-center">
                     {{ $allPaidProjects->links() }} 
                 </div>

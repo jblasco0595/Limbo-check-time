@@ -55,6 +55,15 @@
             </div>
         </div>
 
+        @if( $extraTimeRecords->isEmpty() )
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container text-center">
+                <h1 class="display-4">No existen extraTime aun</h1>
+                <p class="lead">Pasa mas tarde y veamos si hay alguna novedad</p>
+            </div>
+        </div>
+        @endif
+
         <div class="row">
             <div class="col-12 text-center">
                 {{ $extraTimeRecords->links() }}

@@ -122,6 +122,15 @@
             </div>
         </div>
 
+        @if( $userExtraTimes->isEmpty() )
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container text-center">
+                    <h1 class="display-4">No existen extraTime aun</h1>
+                    <p class="lead">Genera la solicitud de uno cuando tengas la disponibilidad</p>
+                </div>
+            </div>
+        @endif
+
         <div class="row">
             <div class="col-12 text-center">
                 {{ $userExtraTimes->links() }}

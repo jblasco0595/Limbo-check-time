@@ -40,6 +40,6 @@ class UsersTableSeeder extends Seeder
             'limbocoins' => 15
         ));
         
-        factory(User::class, 260)->create();
+        factory(User::class, 20)->create();
     }
 }

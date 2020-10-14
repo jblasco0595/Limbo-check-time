@@ -50,6 +50,15 @@
                     </tbody>
                     </table>
                 </table>
+
+                @if( $allRecords->isEmpty() )
+                    <div class="jumbotron jumbotron-fluid">
+                        <div class="container text-center">
+                            <h1 class="display-4">No existen Rangos de Tiempo aun</h1>
+                            <p class="lead">Pasa mas tarde y veamos si hay alguna novedad</p>
+                        </div>
+                    </div>
+                @endif
             </div>
             <div class="col-lg-2 col-md-4">        
                 <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
@@ -72,6 +81,7 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-12 text-center">
                 {{ $allRecords->links() }}

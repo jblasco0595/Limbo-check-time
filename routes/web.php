@@ -54,4 +54,12 @@ Route::put('projectsPayment/{projectPayment}/update', 'ProjectPaymentController@
 
 Route::delete('projectsPayment/{projectPayment}', 'ProjectPaymentController@destroy')->name('projectsPayment.destroy');
 
+Route::get('limbocoinsPage', 'LimbocoinsMoveController@index')->name('limbocoinsMove');
+
+Route::post('limbocoinsPage', 'LimbocoinsMoveController@store')->name('limbocoinsMove.store');
+
+Route::put('limbocoinsPage/{LimbocoinsMove}/update', 'LimbocoinsMoveController@update')->name('limbocoinsMove.update');
+
+Route::delete('limbocoinsPage/{LimbocoinsMove}', 'LimbocoinsMoveController@destroy')->name('limbocoinsMove.destroy');
+
 Auth::routes(['register' => false]);
