@@ -14,18 +14,17 @@ $(document).on('click', '.bootBoxConfirm', function(){
         buttons: {
             confirm: {
                 label: 'Confirm',
-                className: 'btn-danger'
+                className: 'btn-primary'
             },
             cancel: {
                 label: 'Cancel',
-                className: 'btn-default'
+                className: 'btn-danger'
             }
         },
         message: msg,
         callback: function(result) {
             if (result == true)
             {
-                console.log(form)
                 $(form).submit()
             }
         },

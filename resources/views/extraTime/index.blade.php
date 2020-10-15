@@ -28,10 +28,25 @@
                                             @method('PUT')
                                             @csrf
                                             <input type="hidden" id="custId" name="custId" value="1">
-                                            <button type="submit" class="btn btn-outline-success" value="1" onclick="return confirm('¿Desea actualiza el ExtraTime?')">Aprobar</button>
+                                            <!-- call to bootbox confirm (data-form = form -> id) -->
+                                            <button
+                                                type="button"
+                                                data-msg="Estas seguro de aprobas este extraTime?"
+                                                data-form="#approbeExtraTime_{{ $extraTimeRecord->id }}"
+                                                class="btn btn-outline-success bootBoxConfirm"
+                                            >
+                                                Aprobar
+                                            </button>
                                         </form>
                                     @else
-                                        <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="ExtraTime Aprobado">
+                                        <button 
+                                            type="button" 
+                                            class="btn btn-secondary" 
+                                            data-container="body" 
+                                            data-toggle="popover" 
+                                            data-placement="top" 
+                                            data-content="ExtraTime Aprobado"
+                                        >
                                             Aprobado
                                         </button>
                                     @endif

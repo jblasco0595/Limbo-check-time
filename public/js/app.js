@@ -65141,17 +65141,16 @@ $(document).on('click', '.bootBoxConfirm', function () {
     buttons: {
       confirm: {
         label: 'Confirm',
-        className: 'btn-danger'
+        className: 'btn-primary'
       },
       cancel: {
         label: 'Cancel',
-        className: 'btn-default'
+        className: 'btn-danger'
       }
     },
     message: msg,
     callback: function callback(result) {
       if (result == true) {
-        console.log(form);
         $(form).submit();
       }
     }
@@ -65223,8 +65222,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/anni/Documents/projects/checkin/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/anni/Documents/projects/checkin/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /app/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /app/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
