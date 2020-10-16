@@ -25,7 +25,7 @@ $(document).on('click', '.bootBoxConfirm', function(){
         callback: function(result) {
             if (result == true)
             {
-                $(form).submit()
+                $('#'+form).submit()
             }
         },
     });

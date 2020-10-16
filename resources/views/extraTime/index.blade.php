@@ -32,7 +32,7 @@
                                             <button
                                                 type="button"
                                                 data-msg="Estas seguro de aprobas este extraTime?"
-                                                data-form="#approbeExtraTime_{{ $extraTimeRecord->id }}"
+                                                data-form="approbeExtraTime_{{ $extraTimeRecord->id }}"
                                                 class="btn btn-outline-success bootBoxConfirm"
                                             >
                                                 Aprobar
@@ -60,7 +60,7 @@
                                             <button
                                                 type="button"
                                                 data-msg="Estas seguro?"
-                                                data-form="#deleteExtraTime_{{ $extraTimeRecord->id }}"
+                                                data-form="deleteExtraTime_{{ $extraTimeRecord->id }}"
                                                 class="btn btn-outline-danger bootBoxConfirm"
                                             >
                                                 Eliminar

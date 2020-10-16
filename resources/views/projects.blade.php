@@ -90,10 +90,17 @@
                            </div>
                         </td>
                         <td> 
-                           <form action="{{ route('projects.destroy', $projectRecord->id) }}" method="POST">
+                           <form id="deleteExtraTime_{{ $projectRecord->id }}" action="{{ route('projects.destroy', $projectRecord->id) }}" method="POST">
                               @method('DELETE')
                               @csrf
-                              <button type="submit" class="btn btn-outline-danger" onclick="return confirm('¿Desea eliminar este proyecto?')">Eliminar</button>
+                                 <button
+                                    type="button"
+                                    data-msg="Estas seguro?"
+                                    data-form="deleteExtraTime_{{ $projectRecord->id }}"
+                                    class="btn btn-outline-danger bootBoxConfirm"
+                                 >
+                                    Eliminar
+                                 </button>
                            </form>
                         </td>
                      </tr>

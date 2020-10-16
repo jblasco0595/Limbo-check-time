@@ -43,7 +43,14 @@
                                 </form>   
                             </td>
                             <td> 
-                                <button type="submit" class="btn btn-outline-primary" form="editTimeForm_{{ $timeRecord->id }}">Actualizar</button>
+                                <button
+                                    type="button"
+                                    data-msg="Estas seguro de Actualizar este Rango de Tiempo?"
+                                    data-form="editTimeForm_{{ $timeRecord->id }}"
+                                    class="btn btn-outline-primary bootBoxConfirm"
+                                >
+                                    Actualizar
+                                </button>
                             </td>
                             </tr>
                         @endforeach
