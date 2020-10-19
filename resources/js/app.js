@@ -13,12 +13,12 @@ $(document).on('click', '.bootBoxConfirm', function(){
     bootbox.confirm({
         buttons: {
             confirm: {
-                label: 'Confirm',
-                className: 'btn-primary'
+                label: 'Confirmar',
+                className: 'btn-warning'
             },
             cancel: {
-                label: 'Cancel',
-                className: 'btn-danger'
+                label: 'Cancelar',
+                className: 'btn-secondary'
             }
         },
         message: msg,
