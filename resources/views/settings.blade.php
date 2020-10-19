@@ -39,7 +39,14 @@
                 </div>  
             </div>
             <div class="card-footer text-muted">
-                <button type="submit" class="btn btn-secondary btn-lg" form="settingsForm" >Actualiza</button>
+            <button
+                type="button"
+                data-msg="Estas seguro?"
+                data-form="settingsForm"
+                class="btn btn-primary bootBoxConfirm"
+            >
+                Actualiza
+            </button>
             </div>
         </div>
 

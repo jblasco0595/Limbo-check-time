@@ -52,7 +52,14 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary" form="newProjectPayment">Crear</button>
+                                <button
+                                    type="button"
+                                    data-msg="Estas seguro?"
+                                    data-form="newProjectPayment"
+                                    class="btn btn-primary bootBoxConfirm"
+                                >
+                                Crear
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -108,18 +115,32 @@
                                                 </form>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                <button type="submit" class="btn btn-primary" form="updatePaidProject_{{ $paidProject->id }}">Actualizar</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                                <button
+                                                    type="button"
+                                                    data-msg="Estas seguro?"
+                                                    data-form="updatePaidProject_{{ $paidProject->id }}"
+                                                    class="btn btn btn-primary bootBoxConfirm"
+                                                >
+                                                Actualizar
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </td>
                             <td>
-                                <form action="{{ route('projectsPayment.destroy', $paidProject->id) }}" method="POST">
+                                <form id="deletProjectPayment" action="{{ route('projectsPayment.destroy', $paidProject->id) }}" method="POST">
                                     @method('DELETE')
                                     @csrf
-                                    <button type="submit" class="btn btn-outline-danger" onclick="return confirm('¿Desea eliminar este pago de proyecto?')">Eliminar</button>
+                                    <button
+                                        type="button"
+                                        data-msg="Estas seguro?"
+                                        data-form="deletProjectPayment"
+                                        class="btn btn-outline-danger bootBoxConfirm"
+                                    >
+                                        Eliminar
+                                    </button>
                                 </form>
                             </td>
                             </tr>

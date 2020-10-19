@@ -30,8 +30,15 @@
                            </form>
                         </div>
                         <div class="modal-footer">
-                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                           <button type="submit" class="btn btn-primary" form="newProject">Crear</button>
+                           <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                           <button
+                              type="button"
+                              data-msg="Estas seguro?"
+                              data-form="newProject"
+                              class="btn btn-primary bootBoxConfirm"
+                           >
+                              Crear
+                           </button>
                         </div>
                   </div>
                </div>
@@ -83,7 +90,14 @@
                                        </div>
                                        <div class="modal-footer">
                                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                          <button type="submit" class="btn btn-primary" form="updateProject_{{ $projectRecord->id }}">Actualizar</button>
+                                          <button
+                                             type="button"
+                                             data-msg="Estas seguro?"
+                                             data-form="updateProject_{{ $projectRecord->id }}"
+                                             class="btn btn-primary bootBoxConfirm"
+                                          >
+                                             Actualizar
+                                          </button>
                                        </div>
                                  </div>
                               </div>

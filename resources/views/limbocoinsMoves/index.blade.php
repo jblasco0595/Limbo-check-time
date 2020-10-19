@@ -53,7 +53,14 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary" form="newLimbocoinMove">Crear</button>
+                                <button
+                                    type="button"
+                                    data-msg="Estas seguro que desea generar este nuevo movimiento de limbocoins?"
+                                    data-form="newLimbocoinMove"
+                                    class="btn btn btn-primary bootBoxConfirm"
+                                >
+                                    Crear
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -110,17 +117,31 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                    <button type="submit" class="btn btn-primary" form="updateLimbocoinsMoveRecord_{{ $limbocoinsMoveRecord->id }}">Actualizar</button>
+                                                    <button
+                                                        type="button"
+                                                        data-msg="Estas seguro que desea actualizar este movimiento de limbocoins?"
+                                                        data-form="updateLimbocoinsMoveRecord_{{ $limbocoinsMoveRecord->id }}"
+                                                        class="btn btn-primary bootBoxConfirm"
+                                                    >
+                                                        Actualizar
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                    <form action="{{ route('limbocoinsMove.destroy', $limbocoinsMoveRecord->id) }}" method="POST">
+                                    <form id="deleteLimboCoinsMove_{{ $limbocoinsMoveRecord->id }}" action="{{ route('limbocoinsMove.destroy', $limbocoinsMoveRecord->id) }}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <button type="submit" class="btn btn-outline-danger" onclick="return confirm('¿Desea eliminar este pago en limbocoins?')">Eliminar</button>
+                                        <button
+                                            type="button"
+                                            data-msg="Estas seguro que desea eliminar este movimiento de limbocoins?"
+                                            data-form="deleteLimboCoinsMove_{{ $limbocoinsMoveRecord->id }}"
+                                            class="btn btn-outline-danger bootBoxConfirm"
+                                        >
+                                            Eliminar
+                                        </button>
                                     </form>
                                 </td>
                             </tr>
