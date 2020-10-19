@@ -31,7 +31,7 @@
                                             <!-- call to bootbox confirm (data-form = form -> id) -->
                                             <button
                                                 type="button"
-                                                data-msg="Estas seguro de aprobas este extraTime?"
+                                                data-msg="Estas seguro de aprobar este extraTime?"
                                                 data-form="approbeExtraTime_{{ $extraTimeRecord->id }}"
                                                 class="btn btn-outline-success bootBoxConfirm"
                                             >
@@ -59,7 +59,7 @@
                                             <!-- call to bootbox confirm (data-form = form -> id) -->
                                             <button
                                                 type="button"
-                                                data-msg="Estas seguro?"
+                                                data-msg="Estas seguro de que deseas eliminar este extraTime?"
                                                 data-form="deleteExtraTime_{{ $extraTimeRecord->id }}"
                                                 class="btn btn-outline-danger bootBoxConfirm"
                                             >

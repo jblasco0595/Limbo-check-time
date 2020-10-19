@@ -33,7 +33,7 @@
                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                            <button
                               type="button"
-                              data-msg="Estas seguro?"
+                              data-msg="Estas seguro de que desea crear un nuevo proyecto?"
                               data-form="newProject"
                               class="btn btn-primary bootBoxConfirm"
                            >
@@ -92,7 +92,7 @@
                                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                           <button
                                              type="button"
-                                             data-msg="Estas seguro?"
+                                             data-msg="Estas seguro de que deseas actualizar este proyecto?"
                                              data-form="updateProject_{{ $projectRecord->id }}"
                                              class="btn btn-primary bootBoxConfirm"
                                           >
@@ -109,7 +109,7 @@
                               @csrf
                                  <button
                                     type="button"
-                                    data-msg="Estas seguro?"
+                                    data-msg="Estas seguro de que deseas eliminar este proyecto?"
                                     data-form="deleteExtraTime_{{ $projectRecord->id }}"
                                     class="btn btn-outline-danger bootBoxConfirm"
                                  >

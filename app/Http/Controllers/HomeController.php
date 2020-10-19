@@ -22,7 +22,9 @@ class HomeController extends Controller
     
     private function getExtraAccumulatedHours()
     {
-        $hours = ExtraTime::where('user_id', Auth::id())->sum('hours');
+        $hours = ExtraTime::where('user_id', Auth::id())
+            ->where('approved', true)
+            ->sum('hours');
         return $hours;
     }
 

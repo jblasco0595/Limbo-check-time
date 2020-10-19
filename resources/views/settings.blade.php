@@ -41,7 +41,7 @@
             <div class="card-footer text-muted">
             <button
                 type="button"
-                data-msg="Estas seguro?"
+                data-msg="Estas seguro de cambiar los parametros?"
                 data-form="settingsForm"
                 class="btn btn-primary bootBoxConfirm"
             >

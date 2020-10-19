@@ -54,7 +54,7 @@
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                 <button
                                     type="button"
-                                    data-msg="Estas seguro?"
+                                    data-msg="Estas seguro que desea generar un nuevo pago de proyecto?"
                                     data-form="newProjectPayment"
                                     class="btn btn-primary bootBoxConfirm"
                                 >
@@ -118,7 +118,7 @@
                                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                                                 <button
                                                     type="button"
-                                                    data-msg="Estas seguro?"
+                                                    data-msg="Estas seguro de que desea actualizar este pago?"
                                                     data-form="updatePaidProject_{{ $paidProject->id }}"
                                                     class="btn btn btn-primary bootBoxConfirm"
                                                 >
@@ -135,7 +135,7 @@
                                     @csrf
                                     <button
                                         type="button"
-                                        data-msg="Estas seguro?"
+                                        data-msg="Estas seguro que desea eliminar este pago?"
                                         data-form="deletProjectPayment"
                                         class="btn btn-outline-danger bootBoxConfirm"
                                     >
