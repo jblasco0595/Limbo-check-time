@@ -14,6 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+
+
+
+
+// ------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
+//                                                    CHECK CONTROLLER                                                   **
+// ------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
 Route::get('checkPage', 'CheckController@index')->name('check');
 
 Route::get('startNewTime', 'CheckController@startTime')->name('start');
@@ -23,6 +35,17 @@ Route::get('endTimeRecord', 'CheckController@endTime')->name('end');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::put('/timeRange/{timeRange}', 'CheckController@update')->name('updateTimeRange');
+
+
+
+
+
+
+// ------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
+//                                                    SETTING CONTROLLER                                                **
+// ------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
 
 Route::get('settingsPage', 'SettingsController@index')->name('settings');
 
@@ -63,3 +86,16 @@ Route::put('limbocoinsPage/{LimbocoinsMove}/update', 'LimbocoinsMoveController@u
 Route::delete('limbocoinsPage/{LimbocoinsMove}', 'LimbocoinsMoveController@destroy')->name('limbocoinsMove.destroy');
 
 Auth::routes(['register' => false]);
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('closeAllRanges', 'CheckController@closeAllRanges')->name('closeAllRanges');

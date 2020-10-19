@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\TimeRange;
 use Carbon\Carbon;
 use App\User;
+use DB;
 
 class CheckController extends Controller
 {
@@ -126,6 +127,38 @@ class CheckController extends Controller
             'init_time' => $request["initTimeEdit"],
             'end_time' => $request["endTimeEdit"]
         ]);
-        return redirect(route('home'));    
+        return redirect(route('home'));
+    }
+
+    public function closeAllRanges(Request $request)
+    {
+        $openRanges = TimeRange::where('end_time', null);
+        $nOpen = $openRanges->count();
+        $now = Carbon::now()->format('H:i:s');
+        $minTime = '21:00:00';
+        $closedDay = $now > $minTime;
+
+        if (true | $closedDay)
+        {
+            // close all open timeranges
+            $openRanges
+                ->update([
+                    'end_time' => DB::raw("date_add(cast(created_at as date), INTERVAL 21 HOUR)")
+                ]);
+
+            return response()
+                ->json([
+                    'data' => "$nOpen registros cerrados",
+                    'code' => 200
+                ]);
+        } else {
+            return response()
+                ->json([
+                    'data' => 'Aun no se ha cerrado el dia',
+                    'code' => 204
+                ]);
+        }
+
+
     }
 }
