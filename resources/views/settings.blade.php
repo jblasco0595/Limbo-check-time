@@ -18,7 +18,7 @@
                                         <div class="input-group mb-3">
                                             <input name="montlyGoal" id="mGoal" type="text" class="form-control" placeholder="Meta esperada" aria-label="Recipient's username" aria-describedby="basic-addon2" required="true">
                                             <div class="input-group-append">
-                                                <span class="input-group-text" id="basic-addon2" style="width: 170px">Meta Mensual</span>
+                                                <span class="input-group-text" id="basic-addon2" style="width: 170px">Meta mensual</span>
                                             </div>
                                         </div>
                                     </div>

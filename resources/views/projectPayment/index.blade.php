@@ -174,6 +174,13 @@
         $('#datapicker, #updateDatapicker').datetimepicker({
             format: "Y-m-d H:i:s",
         });
+
+       
+        $('#exampleFormControlSelect1').select2({
+            theme: 'bootstrap',
+        });
+    
+
     </script>
 
 @endsection

@@ -3,7 +3,7 @@ require('./bootstrap');
 window.moment = require('moment');
 window.bootbox = require('bootbox');
 window.momentDurationFormatSetup = require("moment-duration-format");
-
+require('select2');
 import 'jquery-datetimepicker/build/jquery.datetimepicker.full';
 
 // listener to use bootbox confirm

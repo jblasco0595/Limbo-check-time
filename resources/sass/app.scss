@@ -7,5 +7,11 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Select2
+@import '~select2/dist/css/select2.css';
+
+//Select2-theme-bootstrap
+@import '~select2-theme-bootstrap4/dist/select2-bootstrap.css';
+
 /* @import '~jquery-ui/themes/base/all.css'; */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.css')

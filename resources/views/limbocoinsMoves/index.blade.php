@@ -170,6 +170,9 @@
         var allLimbocoinsMoveRecords = {!! json_encode($allLimbocoinsMoveRecords) !!};
         console.log(allUsers, allLimbocoinsMoveRecords);
 
+        $('#exampleFormControlSelect1').select2({
+            theme: 'bootstrap',
+        });
     </script>
 
 @endsection

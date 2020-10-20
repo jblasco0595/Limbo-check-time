@@ -27,14 +27,14 @@
                                             <div class="col-4">
                                                 <div class="form-group">
                                                     <div class="input-group">
-                                                        <input name="initTimeEdit" class="form-control form-control-sm" type="text" value="{{ $timeRecord->init_time }}"> 
+                                                        <input id="datapicker" name="initTimeEdit" class="form-control form-control-sm" type="text" value="{{ $timeRecord->init_time }}"> 
                                                     </div>
                                                 </div>
                                            </div>
                                             <div class="col-4">
                                                 <div class="form-group">
                                                     <div class="input-group">
-                                                        <input name="endTimeEdit" class="form-control form-control-sm" type="text" value="{{ $timeRecord->end_time }}">
+                                                        <input id="updateDatapicker" name="endTimeEdit" class="form-control form-control-sm" type="text" value="{{ $timeRecord->end_time }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -77,15 +77,6 @@
                         <p id="limboCoinPrice" class="card-text text-center" style="font-size:30px;">$10</p>
                     </div>
                 </div>      
-                <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                    <div class="card-header text-center" style="font-size:20px;">
-                        ExtraTime
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Acumulado</h5>
-                        <p id="extraTime" class="card-text text-center" style="font-size:30px;">1H</p>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -103,6 +94,10 @@
 
         $('#extraTime').text( accumulatedHour + " H"  );
         $('#limboCoinPrice').text(  "$"+settingPriceLimboCoin.limbocoin_ars_price  );
+
+        $('#datapicker, #updateDatapicker').datetimepicker({
+            format: "Y-m-d H:i:s",
+        });
      
     </script>
 @endsection
