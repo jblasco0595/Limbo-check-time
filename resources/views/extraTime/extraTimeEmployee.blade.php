@@ -6,12 +6,12 @@
             <div class="col-lg-9 col-md-8">
             </div>
             <div class="col-lg-3 col-md-4">
-                <button type="button" class="btn btn-primary ml-3 mb-3" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Nuevo Extra Time</button>
+                <button type="button" class="btn btn-primary ml-3 mb-3" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Solicita horas extra</button>
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Solicitud de extraTime</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Solicitud de horas extra</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
@@ -33,7 +33,7 @@
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                                 <button
                                     type="button"
-                                    data-msg="Estas seguro de que deseas solicitar un extraTime?"
+                                    data-msg="Estas seguro de que deseas solicitar horas extra?"
                                     data-form="newExtraTime"
                                     class="btn btn-primary bootBoxConfirm"
                                 >
@@ -80,7 +80,7 @@
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Actualizar extraTime</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">Actualizar</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -103,7 +103,7 @@
                                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                                                         <button
                                                             type="button"
-                                                            data-msg="Estas seguro de de que desea actualizar este extraTime?"
+                                                            data-msg="Estas seguro de de que desea actualizar esta solicitud?"
                                                             data-form="updateExtraTime_{{ $userExtraTime->id }}"
                                                             class="btn btn-primary bootBoxConfirm"
                                                         >
@@ -124,7 +124,7 @@
                                             @csrf
                                             <button
                                                 type="button"
-                                                data-msg="Estas seguro de que desea eliminar esta solicitud de extraTime?"
+                                                data-msg="Estas seguro de que desea eliminar esta solicitud?"
                                                 data-form="deleteExtraTimeRecord_{{ $userExtraTime->id }}"
                                                 class="btn btn-outline-danger bootBoxConfirm"
                                             >

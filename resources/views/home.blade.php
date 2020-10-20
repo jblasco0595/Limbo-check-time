@@ -48,7 +48,7 @@
                 </div>      
                 <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
                     <div class="card-header text-center" style="font-size:20px;">
-                        Extra Time
+                        Horas extra
                     </div>
                     <div class="card-body">
                         <h5 class="card-title text-center">Acumulado</h5>

@@ -54,23 +54,23 @@
                                         Check 
                                     </a>
                                     <a class="dropdown-item" href="{{ route('home') }}">
-                                        Home 
+                                        Inicio 
                                     </a>
                                     <a class="dropdown-item" href="{{ route('extraTime') }}">
-                                        ExtraTime 
+                                        Horas extra 
                                     </a>
                                         @if( Auth::user()->role == 'admin')
                                             <a class="dropdown-item" href="{{ route('settings') }}">
-                                                Settings 
+                                                Ajustes 
                                             </a>
                                             <a class="dropdown-item" href="{{ route('projects') }}">
-                                                Projects 
+                                                Proyectos 
                                             </a>
                                             <a class="dropdown-item" href="{{ route('projectsPayment') }}">
-                                                Projects Payment 
+                                                Pagos de proyectos 
                                             </a>
                                             <a class="dropdown-item" href="{{ route('limbocoinsMove') }}">
-                                                LimboCoin Moves
+                                                Movimientos de LimboCoin 
                                             </a>
                                         @endif
                                     <div class="dropdown-divider"></div>
