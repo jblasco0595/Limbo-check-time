@@ -6,7 +6,7 @@
             <div class="col-lg-9 col-md-8">
             </div>
             <div class="col-lg-3 col-md-4">
-                <button type="button" class="btn btn-primary ml-3 mb-3" data-toggle="modal" data-target="#paidProjectModal" data-whatever="@mdo">Nuevo Pago de Proyecto</button>
+                <button type="button" class="btn btn-primary ml-3 mb-3" data-toggle="modal" data-target="#paidProjectModal" data-whatever="@mdo">Nuevo pago de proyecto</button>
                 <div class="modal fade" id="paidProjectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -20,7 +20,7 @@
                                 <form id="newProjectPayment" method="POST" action="{{ route('projectsPayment.store') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Selecciona un Proyecto</label>
+                                        <label for="exampleFormControlSelect1">Selecciona un proyecto</label>
                                         <select name="projectId" class="form-control" id="exampleFormControlSelect1">
                                             @foreach($projectsForPayments as $projectForPayment) 
                                                 <option value="{{ $projectForPayment->id }}">{{ $projectForPayment->name }}</option>
@@ -58,7 +58,7 @@
                                     data-form="newProjectPayment"
                                     class="btn btn-primary bootBoxConfirm"
                                 >
-                                Crear
+                                    Crear
                                 </button>
                             </div>
                         </div>
@@ -93,7 +93,7 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Actualizar Pago de Proyecto</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Actualizar pago de proyecto</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                                 </button>
@@ -103,7 +103,7 @@
                                                     @csrf
                                                     @method('PUT')
                                                     <div class="form-group">
-                                                        <label for="message-text" class="col-form-label">Actualizar Monto</label>
+                                                        <label for="message-text" class="col-form-label">Actualizar monto</label>
                                                         <textarea name="amount" class="form-control" id="message-text">{{ $paidProject->amount }}</textarea>
                                                     </div>
                                                     <div class="input-group mb-3">

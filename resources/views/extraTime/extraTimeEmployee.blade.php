@@ -11,7 +11,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Solicitud de Extra Time</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Solicitud de extraTime</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
@@ -20,7 +20,7 @@
                                 <form id="newExtraTime" method="POST" action="{{ route('extraTime.store') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="recipient-name" class="col-form-label">Cantidad de Horas</label>
+                                        <label for="recipient-name" class="col-form-label">Cantidad de horas</label>
                                         <input name="hours" type="text" class="form-control" id="recipient-name" required="true">
                                     </div>
                                     <div class="form-group">
@@ -30,8 +30,15 @@
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary" form="newExtraTime">Crear</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                <button
+                                    type="button"
+                                    data-msg="Estas seguro de que deseas solicitar un extraTime?"
+                                    data-form="newExtraTime"
+                                    class="btn btn-primary bootBoxConfirm"
+                                >
+                                    Crear
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -73,7 +80,7 @@
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Actualizar ExtraTime</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">Actualizar extraTime</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -83,18 +90,25 @@
                                                             @csrf
                                                             @method('PUT')
                                                             <div class="form-group">
-                                                                <label for="recipient-name" class="col-form-label">Actualizar Cantidad de Horas</label>
+                                                                <label for="recipient-name" class="col-form-label">Actualizar cantidad de horas</label>
                                                                 <input name="hours" type="text" class="form-control" id="recipient-name" value="{{ $userExtraTime->hours }}">
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="message-text" class="col-form-label">Actualizar Descripcion de la tarea</label>
+                                                                <label for="message-text" class="col-form-label">Actualizar descripcion de la tarea</label>
                                                                 <textarea name="description" class="form-control" id="message-text">{{ $userExtraTime->description }}</textarea>
                                                             </div>
                                                         </form>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                                        <button type="submit" class="btn btn-primary" form="updateExtraTime_{{ $userExtraTime->id }}">Actualizar</button>
+                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                                        <button
+                                                            type="button"
+                                                            data-msg="Estas seguro de de que desea actualizar este extraTime?"
+                                                            data-form="updateExtraTime_{{ $userExtraTime->id }}"
+                                                            class="btn btn-primary bootBoxConfirm"
+                                                        >
+                                                            Actualizar
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -105,13 +119,28 @@
                                 </td>
                                 <td>
                                     @if( $userExtraTime->approved == 0)
-                                        <form action="{{ route('extraTime.destroy', $userExtraTime->id) }}" method="POST">
+                                        <form id="deleteExtraTimeRecord_{{ $userExtraTime->id }}" action="{{ route('extraTime.destroy', $userExtraTime->id) }}" method="POST">
                                             @method('DELETE')
                                             @csrf
-                                            <button type="submit" class="btn btn-outline-danger" onclick="return confirm('¿Eliminar Extra Time Record?')">Eliminar</button>
+                                            <button
+                                                type="button"
+                                                data-msg="Estas seguro de que desea eliminar esta solicitud de extraTime?"
+                                                data-form="deleteExtraTimeRecord_{{ $userExtraTime->id }}"
+                                                class="btn btn-outline-danger bootBoxConfirm"
+                                            >
+                                                Eliminar
+                                            </button>
                                         </form>
                                     @else 
-                                    <button type="submit" class="btn btn-outline-danger" onclick="return confirm('¿Eliminar Extra Time Record?')" disabled="disabled">Eliminar</button>
+                                        <button
+                                            type="button"
+                                            data-msg="Estas seguro de que desea eliminar esta solicitud de extraTime?"
+                                            data-form="deleteExtraTimeRecord_{{ $userExtraTime->id }}"
+                                            class="btn btn-outline-danger bootBoxConfirm"
+                                            disabled="disabled"
+                                        >
+                                            Eliminar
+                                        </button>
                                     @endif
                                 </td>
                             </tr>

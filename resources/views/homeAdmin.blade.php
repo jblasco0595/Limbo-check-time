@@ -45,7 +45,7 @@
                             <td> 
                                 <button
                                     type="button"
-                                    data-msg="Estas seguro de Actualizar este Rango de Tiempo?"
+                                    data-msg="Estas seguro de actualizar este rango de tiempo?"
                                     data-form="editTimeForm_{{ $timeRecord->id }}"
                                     class="btn btn-outline-primary bootBoxConfirm"
                                 >
@@ -61,7 +61,7 @@
                 @if( $allRecords->isEmpty() )
                     <div class="jumbotron jumbotron-fluid">
                         <div class="container text-center">
-                            <h1 class="display-4">No existen Rangos de Tiempo aun</h1>
+                            <h1 class="display-4">No existen rangos de tiempo aun</h1>
                             <p class="lead">Pasa mas tarde y veamos si hay alguna novedad</p>
                         </div>
                     </div>
@@ -73,13 +73,13 @@
                         LimboCoins
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title text-center">Precio Actualizado</h5>
+                        <h5 class="card-title text-center">Precio actualizado</h5>
                         <p id="limboCoinPrice" class="card-text text-center" style="font-size:30px;">$10</p>
                     </div>
                 </div>      
                 <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
                     <div class="card-header text-center" style="font-size:20px;">
-                        Extra Time
+                        ExtraTime
                     </div>
                     <div class="card-body">
                         <h5 class="card-title text-center">Acumulado</h5>

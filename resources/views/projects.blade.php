@@ -6,7 +6,7 @@
          <div class="col-lg-9 col-md-8">
          </div>
          <div class="col-lg-3 col-md-4">
-            <button type="button" class="btn btn-primary ml-3 mb-3" data-toggle="modal" data-target="#projectModal" data-whatever="@mdo">Nuevo Proyecto</button>
+            <button type="button" class="btn btn-primary ml-3 mb-3" data-toggle="modal" data-target="#projectModal" data-whatever="@mdo">Nuevo proyecto</button>
             <div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -69,7 +69,7 @@
                               <div class="modal-dialog" role="document">
                                  <div class="modal-content">
                                        <div class="modal-header">
-                                          <h5 class="modal-title" id="exampleModalLabel">Actualizar Proyecto</h5>
+                                          <h5 class="modal-title" id="exampleModalLabel">Actualizar proyecto</h5>
                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                           <span aria-hidden="true">&times;</span>
                                           </button>
@@ -79,11 +79,11 @@
                                              @csrf
                                              @method('PUT')
                                              <div class="form-group">
-                                                   <label for="recipient-name" class="col-form-label">Actualizar Nombre</label>
+                                                   <label for="recipient-name" class="col-form-label">Actualizar nombre</label>
                                                    <input name="name" type="text" class="form-control" id="recipient-name" value="{{ $projectRecord->name }}">
                                              </div>
                                              <div class="form-group">
-                                                   <label for="message-text" class="col-form-label">Actualizar Descripcion</label>
+                                                   <label for="message-text" class="col-form-label">Actualizar descripcion</label>
                                                    <textarea name="description" class="form-control" id="message-text">{{ $projectRecord->description }}</textarea>
                                              </div>
                                           </form>

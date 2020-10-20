@@ -21,7 +21,7 @@
                                 <form id="newLimbocoinMove" method="POST" action="{{ route('limbocoinsMove.store') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="exampleFormControlSelect1">Selecciona un Usuario</label>
+                                        <label for="exampleFormControlSelect1">Selecciona un usuario</label>
                                         <select name="userId" class="form-control" id="exampleFormControlSelect1">
                                             @foreach($allUsers as $user) 
                                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -55,7 +55,7 @@
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                 <button
                                     type="button"
-                                    data-msg="Estas seguro que desea generar este nuevo movimiento de limbocoins?"
+                                    data-msg="Estas seguro que desea generar este nuevo movimiento de limboCoins?"
                                     data-form="newLimbocoinMove"
                                     class="btn btn btn-primary bootBoxConfirm"
                                 >
@@ -94,7 +94,7 @@
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Actualizar La Adjudicación</h5>
+                                                    <h5 class="modal-title" id="exampleModalLabel">Actualizar la adjudicación</h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -104,13 +104,13 @@
                                                         @csrf
                                                         @method('PUT')
                                                         <div class="form-group">
-                                                            <label for="message-text" class="col-form-label">Actualizar Monto</label>
+                                                            <label for="message-text" class="col-form-label">Actualizar monto</label>
                                                             <textarea name="amount" class="form-control" id="message-text">{{ $limbocoinsMoveRecord->amount }}</textarea>
                                                         </div>
                                                         <div class="input-group mb-3">
                                                         <textarea name="description" class="form-control" required="true">{{ $limbocoinsMoveRecord->description }}</textarea>
                                                             <div class="input-group-append">
-                                                                <span class="input-group-text" id="basic-addon2">description</span>
+                                                                <span class="input-group-text" id="basic-addon2">Description</span>
                                                             </div>
                                                         </div>  
                                                     </form>
@@ -119,7 +119,7 @@
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                                     <button
                                                         type="button"
-                                                        data-msg="Estas seguro que desea actualizar este movimiento de limbocoins?"
+                                                        data-msg="Estas seguro que desea actualizar este movimiento de limboCoins?"
                                                         data-form="updateLimbocoinsMoveRecord_{{ $limbocoinsMoveRecord->id }}"
                                                         class="btn btn-primary bootBoxConfirm"
                                                     >
@@ -136,7 +136,7 @@
                                         @csrf
                                         <button
                                             type="button"
-                                            data-msg="Estas seguro que desea eliminar este movimiento de limbocoins?"
+                                            data-msg="Estas seguro que desea eliminar este movimiento de limboCoins?"
                                             data-form="deleteLimboCoinsMove_{{ $limbocoinsMoveRecord->id }}"
                                             class="btn btn-outline-danger bootBoxConfirm"
                                         >
@@ -152,7 +152,7 @@
                 @if( $allLimbocoinsMoveRecords->isEmpty() )
                     <div class="jumbotron jumbotron-fluid">
                         <div class="container text-center">
-                            <h1 class="display-4">No existen Adjudicaciones de Limbocoins</h1>
+                            <h1 class="display-4">No existen Adjudicaciones de LimboCoins</h1>
                             <p class="lead">Agrega limbocoins a un usuario cuando sea requerido</p>
                         </div>
                     </div>
