@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-md-10 col-sm-10">        
-                <table class="table table-striped">
+                <table class="table table-striped table-dark">
                     <thead class="thead-dark">
                         <tr>
                         <th scope="col">ID</th>

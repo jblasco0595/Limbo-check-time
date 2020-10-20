@@ -6,7 +6,7 @@
             <div class="col-lg-9 col-md-8">
             </div>
             <div class="col-lg-3 col-md-4">
-                <button type="button" class="btn btn-primary ml-3 mb-3" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Solicita horas extra</button>
+                <button type="button" class="btn btn-dark ml-3 mb-3" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Solicita horas extra</button>
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -47,7 +47,7 @@
         </div>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-10">        
-                <table class="table">
+                <table class="table table-striped table-dark">
                     <thead class="thead-dark">
                         <tr>
                         <th scope="col">ID</th>
@@ -75,7 +75,7 @@
                                 </td>
                                 <td>
                                     @if( $userExtraTime->approved == 0)
-                                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#updateExampleModal_{{ $userExtraTime->id }}" data-whatever="@mdo">Actualizar</button>
+                                        <button type="button" class="btn btn-outline-primary text-white" data-toggle="modal" data-target="#updateExampleModal_{{ $userExtraTime->id }}" data-whatever="@mdo">Actualizar</button>
                                         <div class="modal fade" id="updateExampleModal_{{ $userExtraTime->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
@@ -114,7 +114,7 @@
                                             </div>
                                         </div>
                                     @else
-                                        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#updateExampleModal" data-whatever="@mdo" disabled="disabled">Actualizar</button>              
+                                        <button type="button" class="btn btn-outline-primary text-white" data-toggle="modal" data-target="#updateExampleModal" data-whatever="@mdo" disabled="disabled">Actualizar</button>              
                                     @endif
                                 </td>
                                 <td>
@@ -126,7 +126,7 @@
                                                 type="button"
                                                 data-msg="Estas seguro de que desea eliminar esta solicitud?"
                                                 data-form="deleteExtraTimeRecord_{{ $userExtraTime->id }}"
-                                                class="btn btn-outline-danger bootBoxConfirm"
+                                                class="btn btn-outline-danger bootBoxConfirm text-white"
                                             >
                                                 Eliminar
                                             </button>
@@ -136,7 +136,7 @@
                                             type="button"
                                             data-msg="Estas seguro de que desea eliminar esta solicitud de extraTime?"
                                             data-form="deleteExtraTimeRecord_{{ $userExtraTime->id }}"
-                                            class="btn btn-outline-danger bootBoxConfirm"
+                                            class="btn btn-outline-danger bootBoxConfirm text-white"
                                             disabled="disabled"
                                         >
                                             Eliminar
