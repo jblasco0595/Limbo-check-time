@@ -6,7 +6,7 @@
          <div class="col-lg-9 col-md-8">
          </div>
          <div class="col-lg-3 col-md-4">
-            <button type="button" class="btn btn-primary ml-3 mb-3" data-toggle="modal" data-target="#projectModal" data-whatever="@mdo">Nuevo proyecto</button>
+            <button type="button" class="btn btn-dark ml-3 mb-3" data-toggle="modal" data-target="#projectModal" data-whatever="@mdo">Nuevo proyecto</button>
             <div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -47,7 +47,7 @@
       </div>
       <div class="row">
          <div class="col-lg-12 col-md-12 col-sm-10">        
-            <table class="table">
+            <table class="table table-striped table-dark">
                <thead class="thead-dark">
                   <tr>
                   <th scope="col">ID</th>
@@ -64,7 +64,7 @@
                         <td>{{ $projectRecord->name }}</td>
                         <td>{{ $projectRecord->description }}</td>
                         <td> 
-                           <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#updateProjectsModal{{ $projectRecord->id }}" data-whatever="@mdo">Actualizar</button>
+                           <button type="button" class="btn btn-outline-primary text-white" data-toggle="modal" data-target="#updateProjectsModal{{ $projectRecord->id }}" data-whatever="@mdo">Actualizar</button>
                            <div class="modal fade" id="updateProjectsModal{{ $projectRecord->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                               <div class="modal-dialog" role="document">
                                  <div class="modal-content">
@@ -111,7 +111,7 @@
                                     type="button"
                                     data-msg="Estas seguro de que deseas eliminar este proyecto?"
                                     data-form="deleteExtraTime_{{ $projectRecord->id }}"
-                                    class="btn btn-outline-danger bootBoxConfirm"
+                                    class="btn btn-outline-danger bootBoxConfirm text-white"
                                  >
                                     Eliminar
                                  </button>

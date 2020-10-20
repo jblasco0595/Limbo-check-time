@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-10">
-                <table class="table">
+                <table class="table table-striped table-dark">
                     <thead class="thead-dark">
                         <tr>
                         <th scope="col">ID</th>
@@ -33,7 +33,7 @@
                                                 type="button"
                                                 data-msg="Estas seguro de aprobar esta solicitud de horas extra?"
                                                 data-form="approbeExtraTime_{{ $extraTimeRecord->id }}"
-                                                class="btn btn-outline-success bootBoxConfirm"
+                                                class="btn btn-outline-success bootBoxConfirm text-white"
                                             >
                                                 Aprobar
                                             </button>
@@ -61,13 +61,13 @@
                                                 type="button"
                                                 data-msg="Estas seguro de que deseas eliminar esta solicitud de horas extra?"
                                                 data-form="deleteExtraTime_{{ $extraTimeRecord->id }}"
-                                                class="btn btn-outline-danger bootBoxConfirm"
+                                                class="btn btn-outline-danger bootBoxConfirm text-white"
                                             >
                                                 Eliminar
                                             </button>
                                         </form>
                                     @else
-                                        <button type="button" class="btn btn-outline-danger" disabled="disabled">Eliminar</button>
+                                        <button type="button" class="btn btn-outline-danger text-white" disabled="disabled">Eliminar</button>
                                     @endif
                                 </td>
                             </tr>

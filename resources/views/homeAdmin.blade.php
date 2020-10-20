@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-md-10 col-sm-10">        
-                <table class="table">
+                <table class="table table-striped table-dark">
                     <thead class="thead-dark">
                         <tr>
                         <th scope="col">ID</th>
@@ -27,14 +27,14 @@
                                             <div class="col-4">
                                                 <div class="form-group">
                                                     <div class="input-group">
-                                                        <input id="datapicker" name="initTimeEdit" class="form-control form-control-sm" type="text" value="{{ $timeRecord->init_time }}"> 
+                                                        <input id="datapicker" name="initTimeEdit" class="form-control form-control-sm user-time-range" type="text" value="{{ $timeRecord->init_time }}"> 
                                                     </div>
                                                 </div>
                                            </div>
                                             <div class="col-4">
                                                 <div class="form-group">
                                                     <div class="input-group">
-                                                        <input id="updateDatapicker" name="endTimeEdit" class="form-control form-control-sm" type="text" value="{{ $timeRecord->end_time }}">
+                                                        <input id="updateDatapicker" name="endTimeEdit" class="form-control form-control-sm user-time-range" type="text" value="{{ $timeRecord->end_time }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -47,7 +47,7 @@
                                     type="button"
                                     data-msg="Estas seguro de actualizar este rango de tiempo?"
                                     data-form="editTimeForm_{{ $timeRecord->id }}"
-                                    class="btn btn-outline-primary bootBoxConfirm"
+                                    class="btn btn-outline-primary text-white bootBoxConfirm"
                                 >
                                     Actualizar
                                 </button>

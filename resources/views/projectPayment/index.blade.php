@@ -6,7 +6,7 @@
             <div class="col-lg-9 col-md-8">
             </div>
             <div class="col-lg-3 col-md-4">
-                <button type="button" class="btn btn-primary ml-3 mb-3" data-toggle="modal" data-target="#paidProjectModal" data-whatever="@mdo">Nuevo pago de proyecto</button>
+                <button type="button" class="btn btn-dark ml-3 mb-3" data-toggle="modal" data-target="#paidProjectModal" data-whatever="@mdo">Nuevo pago de proyecto</button>
                 <div class="modal fade" id="paidProjectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -69,7 +69,7 @@
         
         <div class="row mt-2">
             <div class="col-12">
-                <table class="table">
+                <table class="table table-striped table-dark">
                     <thead class="thead-dark">
                         <tr>
                         <th scope="col">ID</th>
@@ -88,7 +88,7 @@
                             <td>{{ $paidProject->date }}</td>
                             <td>{{ $paidProject->amount }}</td>
                             <td>
-                                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#updatePaidProjectsModal_{{ $paidProject->id }}" data-whatever="@mdo">Actualizar</button>
+                                <button type="button" class="btn btn-outline-primary text-white" data-toggle="modal" data-target="#updatePaidProjectsModal_{{ $paidProject->id }}" data-whatever="@mdo">Actualizar</button>
                                 <div class="modal fade" id="updatePaidProjectsModal_{{ $paidProject->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
@@ -137,7 +137,7 @@
                                         type="button"
                                         data-msg="Estas seguro que desea eliminar este pago?"
                                         data-form="deletProjectPayment"
-                                        class="btn btn-outline-danger bootBoxConfirm"
+                                        class="btn btn-outline-danger bootBoxConfirm text-white"
                                     >
                                         Eliminar
                                     </button>

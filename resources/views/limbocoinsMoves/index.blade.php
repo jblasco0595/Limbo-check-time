@@ -7,7 +7,7 @@
             <div class="col-lg-9 col-md-8">
             </div>
             <div class="col-lg-3 col-md-4">
-                <button type="button" class="btn btn-primary ml-3 mb-3" data-toggle="modal" data-target="#limbocoinsMoveModal" data-whatever="@mdo">Agregar LimboCoins</button>
+                <button type="button" class="btn btn-dark ml-3 mb-3" data-toggle="modal" data-target="#limbocoinsMoveModal" data-whatever="@mdo">Agregar LimboCoins</button>
                 <div class="modal fade" id="limbocoinsMoveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -70,7 +70,7 @@
 
         <div class="row mt-2">
             <div class="col-12">
-                <table class="table">
+                <table class="table table-striped table-dark">
                     <thead class="thead-dark">
                         <tr>
                         <th scope="col">ID</th>
@@ -89,7 +89,7 @@
                                 <td>{{ $limbocoinsMoveRecord->description }}</td>
                                 <td>{{ $limbocoinsMoveRecord->amount }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#limbocoinsMoveRecord_{{ $limbocoinsMoveRecord->id }}" data-whatever="@mdo">Actualizar</button>
+                                    <button type="button" class="btn btn-outline-primary text-white" data-toggle="modal" data-target="#limbocoinsMoveRecord_{{ $limbocoinsMoveRecord->id }}" data-whatever="@mdo">Actualizar</button>
                                     <div class="modal fade" id="limbocoinsMoveRecord_{{ $limbocoinsMoveRecord->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
@@ -121,7 +121,7 @@
                                                         type="button"
                                                         data-msg="Estas seguro que desea actualizar este movimiento de limboCoins?"
                                                         data-form="updateLimbocoinsMoveRecord_{{ $limbocoinsMoveRecord->id }}"
-                                                        class="btn btn-primary bootBoxConfirm"
+                                                        class="btn btn-primary bootBoxConfirm "
                                                     >
                                                         Actualizar
                                                     </button>
@@ -138,7 +138,7 @@
                                             type="button"
                                             data-msg="Estas seguro que desea eliminar este movimiento de limboCoins?"
                                             data-form="deleteLimboCoinsMove_{{ $limbocoinsMoveRecord->id }}"
-                                            class="btn btn-outline-danger bootBoxConfirm"
+                                            class="btn btn-outline-danger bootBoxConfirm text-white"
                                         >
                                             Eliminar
                                         </button>
