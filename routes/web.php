@@ -23,33 +23,48 @@ Route::get('/', function () {
 
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
-//                                                    CHECK CONTROLLER                                                   **
+//                                                    Home CONTROLLER                                                   **
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+// ------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
+//                                                    CHECK CONTROLLER                                                 **
+// ------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
+
 Route::get('checkPage', 'CheckController@index')->name('check');
 
 Route::get('startNewTime', 'CheckController@startTime')->name('start');
 
 Route::get('endTimeRecord', 'CheckController@endTime')->name('end');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::put('/timeRange/{timeRange}', 'CheckController@update')->name('updateTimeRange');
 
-
-
-
+Route::get('closeAllRanges', 'CheckController@closeAllRanges')->name('closeAllRanges');
 
 
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
-//                                                    SETTING CONTROLLER                                                **
+//                                                    SETTING CONTROLLER                                                 **
 // ------------------------------------------------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------------------------------------------------
 
 Route::get('settingsPage', 'SettingsController@index')->name('settings');
 
 Route::post('settingsPage', 'SettingsController@store')->name('settingsStore');
+
+
+
+// ------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
+//                                                    EXTRATIME CONTROLLER                                               **
+// ------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
 
 Route::get('extratimePage', 'ExtraTimeController@index')->name('extraTime');
 
@@ -61,6 +76,13 @@ Route::put('extratime/{extraTime}/approved', 'ExtraTimeController@approved')->na
 
 Route::delete('extratime/{extraTime}', 'ExtraTimeController@destroy')->name('extraTime.destroy');
 
+
+// ------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
+//                                                    PROJECT CONTROLLER                                                 **
+// ------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
+
 Route::get('projectsPage', 'ProjectsController@index')->name('projects');
 
 Route::post('projectsPage', 'ProjectsController@store')->name('projects.store');
@@ -69,6 +91,13 @@ Route::delete('projectsPage/{project}', 'ProjectsController@destroy')->name('pro
 
 Route::put('projectsPage/{project}/update', 'ProjectsController@update')->name('projects.update');
 
+
+// ------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
+//                                                    PROJECT PAYMENT CONTROLLER                                         **
+// ------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
+
 Route::get('projectsPaymentPage', 'ProjectPaymentController@index')->name('projectsPayment');
 
 Route::post('projectsPayment', 'ProjectPaymentController@store')->name('projectsPayment.store');
@@ -76,6 +105,14 @@ Route::post('projectsPayment', 'ProjectPaymentController@store')->name('projects
 Route::put('projectsPayment/{projectPayment}/update', 'ProjectPaymentController@update')->name('projectsPayment.update');
 
 Route::delete('projectsPayment/{projectPayment}', 'ProjectPaymentController@destroy')->name('projectsPayment.destroy');
+
+
+// ------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
+//                                                    LIMBOCOINS CONTROLLER                                         **
+// ------------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------------
+
 
 Route::get('limbocoinsPage', 'LimbocoinsMoveController@index')->name('limbocoinsMove');
 
@@ -86,16 +123,3 @@ Route::put('limbocoinsPage/{LimbocoinsMove}/update', 'LimbocoinsMoveController@u
 Route::delete('limbocoinsPage/{LimbocoinsMove}', 'LimbocoinsMoveController@destroy')->name('limbocoinsMove.destroy');
 
 Auth::routes(['register' => false]);
-
-
-
-
-
-
-
-
-
-
-
-
-Route::get('closeAllRanges', 'CheckController@closeAllRanges')->name('closeAllRanges');
