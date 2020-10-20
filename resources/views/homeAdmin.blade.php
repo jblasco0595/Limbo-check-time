@@ -73,7 +73,7 @@
                     <div class="card-header text-center" style="font-size:20px">
                         LimboCoins
                     </div>
-                    <div class="card-body" style="font-size:20px; color:white; background-color:#343a40">
+                    <div class="card-body limbo-card">
                         <h5 class="card-title text-center">Precio actualizado</h5>
                         <p id="limboCoinPrice" class="card-text text-center" style="font-size:30px;">$10</p>
                     </div>
