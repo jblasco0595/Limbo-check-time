@@ -138,7 +138,7 @@ class CheckController extends Controller
         $minTime = '21:00:00';
         $closedDay = $now > $minTime;
 
-        if (true | $closedDay)
+        if ($closedDay)
         {
             // close all open timeranges
             $openRanges

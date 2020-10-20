@@ -68,15 +68,17 @@
                 @endif
             </div>
             <div class="col-lg-2 col-md-4">        
-                <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                    <div class="card-header text-center" style="font-size:20px;">
+                
+                <div class="card bg-light mb-3" style="max-width: 18rem;">
+                    <div class="card-header text-center" style="font-size:20px">
                         LimboCoins
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style="font-size:20px; color:white; background-color:#343a40">
                         <h5 class="card-title text-center">Precio actualizado</h5>
                         <p id="limboCoinPrice" class="card-text text-center" style="font-size:30px;">$10</p>
                     </div>
-                </div>      
+                </div>
+                  
             </div>
         </div>
 
