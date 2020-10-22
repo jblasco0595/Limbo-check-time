@@ -124,8 +124,8 @@ class CheckController extends Controller
     public function update(Request $request, TimeRange $timeRange)
     {
         $timeRange->update([
-            'init_time' => $request["initTimeEdit"],
-            'end_time' => $request["endTimeEdit"]
+            'init_time' => Carbon::parse($request["initTimeEdit"])->addHour(3),
+            'end_time' => Carbon::parse($request["endTimeEdit"])->addHour(3)
         ]);
         return redirect(route('home'));
     }

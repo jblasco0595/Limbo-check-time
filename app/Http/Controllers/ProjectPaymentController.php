@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\ProjectPayment;
 use App\Project;
+use Carbon\Carbon;
 
 class ProjectPaymentController extends Controller
 {
@@ -44,7 +45,7 @@ class ProjectPaymentController extends Controller
     {
         ProjectPayment::create([
             'project_id' => $request->projectId,
-            'date' => $request->paymentDate,
+            'date' => Carbon::parse($request->paymentDate)->addHour(3),
             'amount' => $request->paymentAmount,
         ]);
 
@@ -61,7 +62,7 @@ class ProjectPaymentController extends Controller
     public function update(Request $request, ProjectPayment $projectPayment)
     {
         $projectPayment->update([
-            'date' => $request["paymentDate"],
+            'date' => Carbon::parse($request["paymentDate"])->addHour(3),
             'amount' => $request["amount"]
         ]);   
         return redirect(route('projectsPayment'));

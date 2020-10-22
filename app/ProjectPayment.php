@@ -10,6 +10,10 @@ class ProjectPayment extends Model
         'project_id', 'date', 'amount'
     ];
 
+    protected $dates = [
+        'date'
+    ];
+
     public function project()
     {
         return $this->belongsTo('App\Project');

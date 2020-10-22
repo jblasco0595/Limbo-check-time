@@ -85,7 +85,7 @@
                             <tr>
                             <th scope="row">{{ $paidProject->id }}</th>
                             <td>{{ $paidProject->project->name }}</td>
-                            <td>{{ $paidProject->date }}</td>
+                            <td>{{ $paidProject->date->addHour(-3) }}</td>
                             <td>{{ $paidProject->amount }}</td>
                             <td>
                                 <button type="button" class="btn btn-outline-primary text-white" data-toggle="modal" data-target="#updatePaidProjectsModal_{{ $paidProject->id }}" data-whatever="@mdo">Actualizar</button>
@@ -107,7 +107,7 @@
                                                         <textarea name="amount" class="form-control" id="message-text">{{ $paidProject->amount }}</textarea>
                                                     </div>
                                                     <div class="input-group mb-3">
-                                                    <textarea name="paymentDate" id="updateDatapicker" class="form-control" required="true">{{ $paidProject->date }}</textarea>
+                                                    <textarea name="paymentDate" id="updateDatapicker" class="form-control" required="true">{{ $paidProject->date->addHour(-3) }}</textarea>
                                                         <div class="input-group-append">
                                                             <span class="input-group-text" id="basic-addon2">Fecha</span>
                                                         </div>
