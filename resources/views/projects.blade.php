@@ -103,19 +103,23 @@
                               </div>
                            </div>
                         </td>
-                        <td> 
-                           <form id="deleteExtraTime_{{ $projectRecord->id }}" action="{{ route('projects.destroy', $projectRecord->id) }}" method="POST">
-                              @method('DELETE')
-                              @csrf
-                                 <button
-                                    type="button"
-                                    data-msg="Estas seguro de que deseas eliminar este proyecto?"
-                                    data-form="deleteExtraTime_{{ $projectRecord->id }}"
-                                    class="btn btn-outline-danger bootBoxConfirm text-white"
-                                 >
-                                    Eliminar
-                                 </button>
-                           </form>
+                        <td>
+                           @if ( $projectRecord->project_payment->isEmpty() ) 
+                              <form id="deleteExtraTime_{{ $projectRecord->id }}" action="{{ route('projects.destroy', $projectRecord->id) }}" method="POST">
+                                 @method('DELETE')
+                                 @csrf
+                                    <button
+                                       type="button"
+                                       data-msg="Estas seguro de que deseas eliminar este proyecto?"
+                                       data-form="deleteExtraTime_{{ $projectRecord->id }}"
+                                       class="btn btn-outline-danger bootBoxConfirm text-white"
+                                    >
+                                       Eliminar
+                                    </button>
+                              </form>
+                           @else
+                              <button type="button" class="btn btn-outline-danger text-white" disabled="disabled">Eliminar</button>
+                           @endif
                         </td>
                      </tr>
                   @endforeach

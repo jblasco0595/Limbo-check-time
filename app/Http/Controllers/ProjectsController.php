@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ProjectPayment;
 use App\Project;
 
 class ProjectsController extends Controller
 {
     private function getProjectsRecords()
     {
-        $projectsRecords = Project::orderBy('id', 'desc')->paginate(10);
+        $projectsRecords = Project::with('project_payment')->orderBy('id', 'desc')->paginate(10);
         return $projectsRecords;
     }
 
@@ -34,10 +35,16 @@ class ProjectsController extends Controller
     }
 
     public function destroy(Project $project)
-    {
-        $project->delete();
+    {   
+        $projectId = $project->id;
+        $projectStatus = ProjectPayment::where('project_id', $projectId)->count();
 
-        return redirect(route('projects'));
+        if ( $projectStatus > 0) {
+            return redirect(route('projects'));
+        } else {
+            $project->delete();
+            return redirect(route('projects'));
+        }
     }
 
     public function update(Request $request, Project $project)
