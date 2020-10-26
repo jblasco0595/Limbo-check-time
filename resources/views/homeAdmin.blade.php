@@ -34,7 +34,11 @@
                                             <div class="col-4">
                                                 <div class="form-group">
                                                     <div class="input-group">
-                                                        <input id="updateDatapicker" name="endTimeEdit" class="form-control form-control-sm user-time-range" type="text" value="{{ $timeRecord->end_time->addHour(-3) }}">
+                                                        @if( $timeRecord->end_time )
+                                                            <input id="updateDatapicker" name="endTimeEdit" class="form-control form-control-sm user-time-range" type="text" value="{{ $timeRecord->end_time->addHour(-3) }}">
+                                                        @else 
+                                                            <p class="h2">En ejecución</p>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
