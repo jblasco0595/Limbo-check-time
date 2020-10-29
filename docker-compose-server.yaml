@@ -1,0 +1,33 @@
+version: '2'
+services:
+  db:
+    container_name: db
+    image: mysql:8.0.22
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: passWord1313
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - '3001:80'
+      - '3443:443'
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+      UPLOAD_LIMIT: 3000000000
+  myapp:
+    container_name: venecol_admin
+    build: .
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - '3000:80'
+    volumes:
+      - ./:/var/www/html
+volumes:
+  db_data:
+    driver: local
