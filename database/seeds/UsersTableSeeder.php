@@ -39,6 +39,15 @@ class UsersTableSeeder extends Seeder
             'username' => 'gguerrero',
             'limbocoins' => 15
         ));
+
+        User::create(array(
+            'name' => 'jolfran',
+            'email' => 'jolfran@gmail.com',
+            'role' => 'employee',
+            'password' => Hash::make('1234'),
+            'username' => 'jolfran',
+            'limbocoins' => 15
+        ));
         
         factory(User::class, 20)->create();
     }
