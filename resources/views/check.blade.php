@@ -15,7 +15,7 @@
                     <button id="checkOut" type="button" class="btn btn-danger" onclick="endTime()">Check Out</button>
                 </div>
                 <div class="card-footer text-muted">
-                    Los registros seran corroborados, recuerda hacer tus check correctamente.
+                    Los registros seran corroborados, recuerda hacer tus check correctamente..
                 </div>
             </div>
         </div>
