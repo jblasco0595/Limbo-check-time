@@ -19,6 +19,7 @@ class ProjectPaymentController extends Controller
     private function getAllPaidProjects()
     {
         $paidProjects = ProjectPayment::with('project')->orderBy('id', 'desc')->paginate(10);
+        $paidProjects->setPath('');
         return $paidProjects;
     }
 

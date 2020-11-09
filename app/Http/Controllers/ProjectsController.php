@@ -11,6 +11,7 @@ class ProjectsController extends Controller
     private function getProjectsRecords()
     {
         $projectsRecords = Project::with('project_payment')->orderBy('id', 'desc')->paginate(10);
+        $projectsRecords->setPath('');
         return $projectsRecords;
     }
 

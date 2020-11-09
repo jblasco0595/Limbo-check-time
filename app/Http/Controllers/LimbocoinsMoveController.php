@@ -18,6 +18,7 @@ class LimbocoinsMoveController extends Controller
     private function getAllLimbocoinsMoveRecords()
     {
         $limboCoins = LimbocoinsMove::with('user')->orderBy('id', 'desc')->paginate(10);
+        $limboCoins->setPath('');
         return $limboCoins;
     }
 

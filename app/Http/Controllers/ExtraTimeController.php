@@ -15,12 +15,14 @@ class ExtraTimeController extends Controller
     private function getExtraTimeRecords()
     {
         $extraTimeRecords = ExtraTime::with('user')->orderBy('id', 'desc')->paginate(10);
+        $extraTimeRecords->setPath('');
         return $extraTimeRecords;
     }
 
     private function getUserExtraTimes()
     {
         $userExtraTimeList = ExtraTime::where('user_id', Auth::id())->orderBy('id', 'desc')->paginate(10);
+        $userExtraTimeList->setPath('');
         return $userExtraTimeList;
     }
 

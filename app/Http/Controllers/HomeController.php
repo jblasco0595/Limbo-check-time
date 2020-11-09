@@ -31,12 +31,14 @@ class HomeController extends Controller
     private function getAllTimeRecords()
     {
         $allTimeRecords = TimeRange::where('user_id', Auth::id())->latest()->paginate(10);
+        $allTimeRecords->setPath('');
         return $allTimeRecords;
     }
 
     private function getAllTimeRecordsAdmin()
     {
         $allTimeRecordsAdmin = TimeRange::with('user')->orderBy('id', 'desc')->paginate(10);
+        $allTimeRecordsAdmin->setPath('');
         return $allTimeRecordsAdmin;
     }
     /**
